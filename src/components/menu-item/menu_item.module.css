@@ -1,0 +1,45 @@
+.container:hover {
+    cursor: pointer;
+}
+
+.menuItemText {
+    align-self: center;
+    cursor: pointer;
+    font-size: 1.4vw;
+    text-transform: uppercase;
+    color: var(--text-color);
+}
+
+.menuItemUnderlineContainer {
+    position: relative;
+    width: 100%;
+    height: 0.2vw;
+}
+
+.menuItemUnderline {
+    width: 100%;
+    height: 100%;
+    background-color: var(--fg-color);
+}
+
+@keyframes underlineAppear {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+/*@keyframes underlineDisappear {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}*/
+
+.underlineAppears {
+    animation: underlineAppear 1000ms;
+}

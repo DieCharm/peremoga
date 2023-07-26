@@ -1,0 +1,109 @@
+.langSwitcherContainer {
+    width: 80%;
+    height: 50%;
+    padding: 0 10%;
+    margin-top: 24%;
+    border: var(--text-color) 1px solid;
+    border-radius: 1vh;
+    cursor: pointer;
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.langName {
+    color: var(--text-color);
+    display: block;
+    font-size: 0.9em;
+}
+
+.arrow {
+    content: "";
+    width: 1.4vh;
+    height: 1vh;
+    background-color: var(--text-color);
+    clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+}
+
+@keyframes rotateUp {
+    from {
+        transform: rotateX(0deg);
+    }
+    to {
+        transform: rotateX(180deg);
+    }
+}
+
+@keyframes rotateDown {
+    from {
+        transform: rotateX(180deg);
+    }
+    to {
+        transform: rotateX(0deg);
+    }
+}
+
+.arrowTurnsUp {
+    animation: rotateUp 250ms;
+}
+
+.arrowUp {
+    transform: rotateX(180deg);
+}
+
+.arrowTurnsDown {
+    animation: rotateDown 250ms;
+}
+
+.optionsContainer {
+    width: 100%;
+    position: relative;
+    border-radius: 1vh;
+    margin-top: 0.5vh;
+    height: 150%;
+    border: var(--text-color) 1px solid;
+    overflow: hidden;
+    outline: none;
+}
+
+@keyframes dropdown {
+    0% {
+        height: 0;
+    }
+    100% {
+        height: 150%;
+    }
+}
+
+.optionsEntering {
+    animation: dropdown 200ms;
+}
+
+.optionsExiting {
+    animation: dropdown 250ms;
+    animation-direction: reverse;
+}
+
+.optionContainer {
+    width: 80%;
+    height: 33.33%;
+    padding: 0 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.highlighted {
+    background-color: var(--fg-color);
+}
+
+.checkMark {
+    width: 0.5vw;
+    height: 0.5vw;
+    border-radius: 0.25vw;
+    background: var(--text-color);
+}

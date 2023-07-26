@@ -1,13 +1,21 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+    --bg-color: #0F0359;
+    --text-color: #e6e1ff;
+    --fg-color: #9b81e7;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+    font-family: "LunasimaBold";
+    src: local("Lunasima-Bold"),
+    url("./fonts/Lunasima-Bold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "LunasimaRegular";
+    src: local("Lunasima-Regular"),
+    url("./fonts/Lunasima-Regular.ttf") format("truetype");
+}
+
+* {
+    font-family: LunasimaRegular;
 }

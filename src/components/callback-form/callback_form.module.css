@@ -1,0 +1,22 @@
+.formContainer {
+
+}
+
+.callbackForm {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+.result {
+    width: 200px;
+    height: 30px;
+}
+
+.green {
+    color: #094f09;
+}
+
+.red {
+    color: #a10b0b;
+}

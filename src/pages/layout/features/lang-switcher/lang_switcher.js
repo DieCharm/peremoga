@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useRef, useState} from 'react';
-import {LangContext, languages} from "../../context";
+import {LangContext, languages} from "../../../../context";
 import styles from "./lang_switcher.module.css";
 import {CSSTransition} from "react-transition-group";
 
@@ -25,7 +25,7 @@ const LangSwitcher = () => {
         }
     }, [dropdown_active]);
 
-    function key_down(event) {
+    function handle_key_down(event) {
         if (event.code === "ArrowRight" || event.code === "ArrowDown") {
             set_highlighted_lang(prevState => (prevState + 1) % languages.length);
         }
@@ -48,8 +48,9 @@ const LangSwitcher = () => {
         }
     }
 
-    function choose_lang() {
-        set_lang(highlighted_lang);
+    function choose_lang(lang = highlighted_lang) {
+        set_lang(lang);
+        localStorage.setItem("lang", lang.toString());
         setTimeout(() => {
             set_dropdown_active(false);
         }, 50);
@@ -84,25 +85,24 @@ const LangSwitcher = () => {
                 onExiting={() => setTimeout(() => set_show_dropdown_text(false), 100)}
                 mountOnEnter
                 unmountOnExit>
-                {state =>
-                    <div
-                        ref={dropdown_ref}
-                        className={[styles.optionsContainer, state].join(" ")}
-                        onKeyDown={key_down}
-                        tabIndex={-1}>
-                        {show_dropdown_text && languages.map((language, index) =>
-                            <div key={index}
-                                 className={[
-                                     styles.optionContainer,
-                                     (index === highlighted_lang ? styles.highlighted : "")].join(" ")}
-                                 onMouseEnter={() =>
-                                     set_highlighted_lang(index)}
-                                 onClick={() => choose_lang()}>
-                                <span className={styles.langName}>{language}</span>
-                                {index === lang &&
-                                    <div className={styles.checkMark}></div>}
-                            </div>)}
-                    </div>}
+                <div
+                    ref={dropdown_ref}
+                    className={styles.optionsContainer}
+                    onKeyDown={handle_key_down}
+                    tabIndex={-1}>
+                    {show_dropdown_text && languages.map((language, index) =>
+                        <div key={index}
+                             className={[
+                                 styles.optionContainer,
+                                 (index === highlighted_lang ? styles.highlighted : "")].join(" ")}
+                             onMouseEnter={() =>
+                                 set_highlighted_lang(index)}
+                             onClick={() => choose_lang(index)}>
+                            <span className={styles.langName}>{language}</span>
+                            {index === lang &&
+                                <div className={styles.checkMark}></div>}
+                        </div>)}
+                </div>
             </CSSTransition>
         </>
     );

@@ -4,7 +4,7 @@
     padding: 0 10%;
     margin-top: 24%;
     border: var(--text-color) 1px solid;
-    border-radius: 1vh;
+    border-radius: 0.5em;
     cursor: pointer;
     align-self: center;
     display: flex;
@@ -21,8 +21,8 @@
 
 .arrow {
     content: "";
-    width: 1.4vh;
-    height: 1vh;
+    width: 0.7em;
+    height: 0.5em;
     background-color: var(--text-color);
     clip-path: polygon(100% 0%, 0 0%, 50% 100%);
 }
@@ -60,7 +60,7 @@
 .optionsContainer {
     width: 100%;
     position: relative;
-    border-radius: 1vh;
+    border-radius: 0.5em;
     margin-top: 0.5vh;
     height: 150%;
     border: var(--text-color) 1px solid;
@@ -102,8 +102,8 @@
 }
 
 .checkMark {
-    width: 0.5vw;
-    height: 0.5vw;
-    border-radius: 0.25vw;
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 50%;
     background: var(--text-color);
 }

@@ -1,0 +1,61 @@
+.picture {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+
+/*@keyframes changeBackground0to1 {
+    0% {
+        background-image:
+                linear-gradient(rgba(1, 1, 1, 0.8), transparent 30%),
+                url("../../../../static/img/home_bg0.jpeg");
+    }
+    50% {
+        background-image:
+                linear-gradient(rgba(1, 1, 1, 0.8), transparent 30%),
+                url("../../../../static/img/home_bg0.jpeg"),
+                url("../../../../static/img/home_bg1.jpeg");
+        opacity: 0.5;
+    }
+    100% {
+        background-image:
+                linear-gradient(rgba(1, 1, 1, 0.8), transparent 30%),
+                url("../../../../static/img/home_bg1.jpeg");
+    }
+}*/
+
+@keyframes changeBackground {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.2;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.bg0 {
+    animation: changeBackground 200ms;
+    /*background-image: linear-gradient(rgba(1, 1, 1, 0.8), transparent 30%), url("../../../../static/img/home_bg0.jpeg");*/
+}
+
+.bg1 {
+    animation: changeBackground 200ms;
+   /* background-image: linear-gradient(rgba(1, 1, 1, 0.8), transparent 30%), url("../../../../static/img/home_bg1.jpeg");*/
+}
+
+.bg2 {
+    animation: changeBackground 200ms;
+    /*background-image: linear-gradient(rgba(1, 1, 1, 0.8), transparent 30%), url("../../../../static/img/home_bg2.jpeg");*/
+}
+
+.bg3 {
+    animation: changeBackground 200ms;
+    /*background-image: linear-gradient(rgba(1, 1, 1, 0.8), transparent 30%), url("../../../../static/img/home_bg3.jpeg");*/
+}

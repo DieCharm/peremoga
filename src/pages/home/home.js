@@ -1,7 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import styles from "./home.module.css";
 import {CSSTransition} from "react-transition-group";
-import Picture from "./features/picture/picture";
+import Header from "./features/header/header";
 
 const HomePage = () => {
 
@@ -80,7 +80,7 @@ const HomePage = () => {
                 }}
                 mountOnEnter
                 unmountOnExit>
-                <Picture />
+                <Header />
             </CSSTransition>
             <CSSTransition
                 in={slide === 1 && show_slide}

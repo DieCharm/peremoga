@@ -1,7 +1,7 @@
 :root {
     --bg-color: #0F0359;
     --text-color: #e6e1ff;
-    --fg-color: #9b81e7;
+    --fg-color: rgb(155, 129, 231);
 }
 
 @font-face {

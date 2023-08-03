@@ -1,11 +1,12 @@
 import React, {useEffect} from 'react';
 import MenuItem from "./features/menu-item/menu_item";
-import {menu_items} from "../../texts/menu_items";
+import {menu_items_texts} from "../../texts/menu_items_texts";
 import LangSwitcher from "./features/lang-switcher/lang_switcher";
 import styles from "./layout.module.css";
 import {useState} from "react";
 import {LangContext} from "../../context";
 import {Outlet, useNavigate} from "react-router";
+import Picture from "./features/picture/picture";
 
 const LayoutPage = () => {
 
@@ -20,6 +21,11 @@ const LayoutPage = () => {
     }
 
     useEffect(() => {
+        console.log("mount layout");
+        return () => console.log("unmount layout");
+    });
+
+    useEffect(() => {
         if (redirect_to instanceof String || typeof redirect_to === 'string') {
             const to = redirect_to;
             set_redirect_to(null);
@@ -30,6 +36,7 @@ const LayoutPage = () => {
     return (
         <LangContext.Provider value={{lang, set_lang}}>
             <div className={styles.main}>
+                <Picture />
                 <div
                     onClick={() => before_redirect("")}
                     onMouseEnter={() => set_logo_underline_active(true)}
@@ -47,12 +54,12 @@ const LayoutPage = () => {
                         <div className={styles.menu}>
                             <div className={styles.menuItemContainer}>
                                 <MenuItem
-                                    text={menu_items["about"][lang]}
+                                    text={menu_items_texts["about"][lang]}
                                     callback={() => before_redirect("about")} />
                             </div>
                             <div className={styles.menuItemContainer}>
                                 <MenuItem
-                                    text={menu_items["contacts"][lang]}
+                                    text={menu_items_texts["contacts"][lang]}
                                     callback={() => before_redirect("contacts")} />
                             </div>
                         </div>

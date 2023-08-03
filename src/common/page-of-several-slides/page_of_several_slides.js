@@ -8,7 +8,7 @@ import styles from "./page_of_several_slides.module.css";
 const PageOfSeveralSlides = ({slides, enter_classes, exit_classes}) => {
 
     const {redirect_to} = useContext(AppContext);
-    const [slide, set_slide] = useState(0);
+    const [slide_number, set_slide_number] = useState(0);
     const [animating,set_animating] = useState(false);
     const [show_slide, set_show_slide] = useState(true);
     const [prev_screen_Y, set_prev_screen_Y] = useState(0);
@@ -50,12 +50,12 @@ const PageOfSeveralSlides = ({slides, enter_classes, exit_classes}) => {
     }
 
     const change_slide = (increment) => {
-        if (increment && slide < slides.length - 1) {
-            set_slide(slide + 1);
+        if (increment && slide_number < slides.length - 1) {
+            set_slide_number(slide_number + 1);
             set_show_slide(false);
         }
-        else if (!increment && slide > 0) {
-            set_slide(slide - 1);
+        else if (!increment && slide_number > 0) {
+            set_slide_number(slide_number - 1);
             set_show_slide(false);
         }
     }
@@ -71,7 +71,8 @@ const PageOfSeveralSlides = ({slides, enter_classes, exit_classes}) => {
             onTouchEnd={handle_touch_end}>
             {slides.map((slide, index) =>
                 <CSSTransition
-                    in={redirect_to === null && slide === 0 && show_slide}
+                    key={index}
+                    in={redirect_to === null && slide_number === index && show_slide}
                     timeout={1000}
                     classNames={{
                         enterActive: enter_classes[index],

@@ -1,13 +1,13 @@
-.container:hover {
-    cursor: pointer;
-}
-
 .menuItemText {
     align-self: center;
     cursor: pointer;
     font-size: 1.3em;
     text-transform: uppercase;
     color: var(--text-color);
+}
+
+.menuItemText:hover {
+    cursor: pointer;
 }
 
 .menuItemUnderlineContainer {

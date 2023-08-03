@@ -28,14 +28,14 @@ const AnimatedContentSwitcher =
             {elements.map((element, index) =>
                 <CSSTransition
                     key={index}
-                    in={index = element_number}
+                    in={index === element_number}
                     timeout={animation_time - 50}
                     classNames={{
                         enterActive: enter_class,
                         exitActive: exit_class}}
                     mountOnEnter
                     unmountOnExit>
-                    {state => element}
+                    {element}
                 </CSSTransition>)}
         </>
     );

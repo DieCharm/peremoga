@@ -1,10 +1,12 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useContext, useEffect, useRef, useState} from 'react';
 import styles from "./home.module.css";
 import {CSSTransition} from "react-transition-group";
 import Header from "./features/header/header";
+import {AppContext} from "../../context";
 
 const HomePage = () => {
 
+    const {redirect_to} = useContext(AppContext);
     const SLIDES_AMOUNT = 2;
     const [slide, set_slide] = useState(0);
     const [show_slide, set_show_slide] = useState(true);
@@ -66,7 +68,7 @@ const HomePage = () => {
             onTouchStart={e => set_prev_screen_Y(e.touches[0].screenY)}
             onTouchEnd={handle_touch_end} >
             <CSSTransition
-                in={slide === 0 && show_slide}
+                in={redirect_to === null && slide === 0 && show_slide}
                 timeout={1000}
                 classNames={{
                     enterActive: styles.pictureAppears,
@@ -83,7 +85,7 @@ const HomePage = () => {
                 <Header />
             </CSSTransition>
             <CSSTransition
-                in={slide === 1 && show_slide}
+                in={redirect_to === null && slide === 1 && show_slide}
                 timeout={1000}
                 classNames={{
                     enterActive: styles.pictureAppears,

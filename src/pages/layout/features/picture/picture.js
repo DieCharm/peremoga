@@ -1,42 +1,19 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React from 'react';
 import styles from "./picture.module.css";
-import {CSSTransition} from "react-transition-group";
+import AnimatedContentSwitcher from "../../../../common/animated-content-switcher/animated_content_switcher";
 
 const Picture = React.memo(() => {
 
-    const [background_number, set_background_number] = useState(0);
-    const background_number_ref = useRef(background_number);
-    background_number_ref.current = background_number;
     const bgStyles = [styles.bg0, styles.bg1, styles.bg2, styles.bg3];
-
-    useEffect(() => {
-        const interval_ID = setInterval(() => {
-            set_background_number((background_number_ref.current + 1) % bgStyles.length);
-        }, 5000);
-        return () => {
-            clearInterval(interval_ID);
-        };
-    }, []);
+    const elements = bgStyles.map(bg_style => <div className={[styles.picture, bg_style].join(" ")} />)
 
     return (
-        <>
-            {bgStyles.map((bg_style, index) =>
-                <CSSTransition
-                    key={index}
-                    in={index === background_number}
-                    timeout={950}
-                    classNames={{
-                        enterActive: styles.bgAppear,
-                        exitActive: styles.bgDisappear
-                    }}
-                    mountOnEnter
-                    unmountOnExit>
-                    {state => <div className={[
-                        styles.picture,
-                        bg_style
-                    ].join(" ")}></div>}
-                </CSSTransition>)}
-        </>
+        <AnimatedContentSwitcher
+            elements={elements}
+            switch_timeout={5000}
+            animation_time={1000}
+            enter_class={styles.bgAppear}
+            exit_class={styles.bgDisappear} />
     );
 });
 

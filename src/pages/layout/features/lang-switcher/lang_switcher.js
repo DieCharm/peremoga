@@ -1,11 +1,11 @@
 import React, {useContext, useEffect, useRef, useState} from 'react';
-import {LangContext, languages} from "../../../../context";
+import {AppContext, languages} from "../../../../context";
 import styles from "./lang_switcher.module.css";
 import {CSSTransition} from "react-transition-group";
 
 const LangSwitcher = () => {
 
-    const {lang, set_lang} = useContext(LangContext);
+    const {lang, set_lang} = useContext(AppContext);
     const [highlighted_lang, set_highlighted_lang] = useState(lang);
     const [dropdown_active, set_dropdown_active] = useState(false);
     const [show_dropdown_text, set_show_dropdown_text] = useState(false);

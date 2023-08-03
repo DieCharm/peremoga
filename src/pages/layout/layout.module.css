@@ -14,13 +14,10 @@
     height: 10vh;
     display: flex;
     flex-direction: row;
+    justify-content: flex-end;
     position: fixed;
     top: 0;
     left: 10%;
-}
-
-.leftContainer {
-    height: inherit;
 }
 
 .menuContainer {

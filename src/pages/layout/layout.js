@@ -4,7 +4,7 @@ import {menu_items_texts} from "../../texts/menu_items_texts";
 import LangSwitcher from "./features/lang-switcher/lang_switcher";
 import styles from "./layout.module.css";
 import {useState} from "react";
-import {LangContext} from "../../context";
+import {AppContext} from "../../context";
 import {Outlet, useNavigate} from "react-router";
 import Picture from "./features/picture/picture";
 
@@ -16,29 +16,23 @@ const LayoutPage = () => {
     const [logo_underline_active, set_logo_underline_active] = useState(false);
     const navigate = useNavigate();
 
-    const before_redirect = (path) => {
-        setTimeout(() => set_redirect_to(path), 1000);
-    }
-
     useEffect(() => {
-        console.log("mount layout");
-        return () => console.log("unmount layout");
-    });
-
-    useEffect(() => {
-        if (redirect_to instanceof String || typeof redirect_to === 'string') {
-            const to = redirect_to;
-            set_redirect_to(null);
-            navigate(to);
-        }
+        const timeout_ID = setTimeout(() => {
+            if (redirect_to instanceof String || typeof redirect_to === 'string') {
+                const to = redirect_to;
+                set_redirect_to(null);
+                navigate(to);
+            }
+            }, 1000);
+        return () => clearTimeout(timeout_ID);
     }, [redirect_to]);
 
     return (
-        <LangContext.Provider value={{lang, set_lang}}>
+        <AppContext.Provider value={{lang, set_lang, redirect_to}}>
             <div className={styles.main}>
                 <Picture />
                 <div
-                    onClick={() => before_redirect("")}
+                    onClick={() => set_redirect_to("")}
                     onMouseEnter={() => set_logo_underline_active(true)}
                     onMouseLeave={() => set_logo_underline_active(false)}
                     className={styles.logo} >
@@ -49,18 +43,17 @@ const LayoutPage = () => {
                     </div>
                 </div>
                 <div className={styles.topBar}>
-                    <div className={styles.leftContainer} />
                     <div className={styles.menuContainer}>
                         <div className={styles.menu}>
                             <div className={styles.menuItemContainer}>
                                 <MenuItem
                                     text={menu_items_texts["about"][lang]}
-                                    callback={() => before_redirect("about")} />
+                                    callback={() => set_redirect_to("about")} />
                             </div>
                             <div className={styles.menuItemContainer}>
                                 <MenuItem
                                     text={menu_items_texts["contacts"][lang]}
-                                    callback={() => before_redirect("contacts")} />
+                                    callback={() => set_redirect_to("contacts")} />
                             </div>
                         </div>
                         <div className={styles.langSwitcherContainer}>
@@ -72,7 +65,7 @@ const LayoutPage = () => {
                 <div className={[styles.background, styles.position1].join(" ")} />
                 <div className={[styles.background, styles.position2].join(" ")} />
             </div>
-        </LangContext.Provider>
+        </AppContext.Provider>
     );
 };
 

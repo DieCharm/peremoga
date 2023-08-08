@@ -29,12 +29,10 @@
 }
 
 @media (orientation: landscape) {
-    .leftContainer { width: 50%; }
     .menuContainer { width: 50%; }
 }
 
 @media (orientation: portrait) {
-    .leftContainer { width: 30%; }
     .menuContainer { width: 70%; }
 }
 
@@ -56,15 +54,15 @@
 
 @media (min-width: 560px) {
     .logo {
-        width: 23vh;
-        height: 23vh;
+        width: 10em;
+        height: 10em;
     }
 }
 
 @media (max-width: 560px) {
     .logo {
-        width: 15vh;
-        height: 15vh;
+        width: 9em;
+        height: 9em;
     }
 }
 

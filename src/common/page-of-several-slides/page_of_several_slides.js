@@ -10,11 +10,14 @@ const PageOfSeveralSlides = ({slides, enter_classes, exit_classes}) => {
     const {redirect_to} = useContext(AppContext);
     const [slide_number, set_slide_number] = useState(0);
     const [animating,set_animating] = useState(false);
-    const [show_slide, set_show_slide] = useState(true);
+    const [show_slide, set_show_slide] = useState(false);
     const [prev_screen_Y, set_prev_screen_Y] = useState(0);
     const main_ref = useRef();
 
-    useEffect(() => main_ref.current.focus(), []);
+    useEffect(() => {
+        main_ref.current.focus();
+        set_show_slide(true);
+    }, []);
 
     const handle_key_down = (event) => {
         if (!animating) {

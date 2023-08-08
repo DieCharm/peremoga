@@ -1,3 +1,12 @@
+@keyframes slideInDown {
+    0% {
+        transform: translateY(-100vw);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
 .headerContainer {
     width: 25em;
     height: 10em;
@@ -10,6 +19,15 @@
     overflow: hidden;
     margin-top: -12%;
     background-color: rgba(155, 129, 231, 0.3);
+}
+
+.headerContainer.entering {
+    animation: slideInDown 1050ms;
+}
+
+.headerContainer.exiting {
+    animation: slideInDown 1050ms;
+    animation-direction: reverse;
 }
 
 h1 {
@@ -31,15 +49,15 @@ p {
     top: 55%;
 }
 
-.tr {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.cn {
-
+@media (max-width: 560px) {
+    .headerContainer {
+        width: 20em;
+        height: 8em;
+        margin-top: -25%;
+    }
+    h1 {
+        font-size: 2.5em;
+    }
 }
 
 @keyframes rightToLeftAppear {

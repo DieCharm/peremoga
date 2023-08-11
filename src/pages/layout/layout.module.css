@@ -5,7 +5,7 @@
     right: 0;
     top: 0;
     bottom: 0;
-    background-color: var(--bg-color);
+    background: var(--bg-color);
 }
 
 .topBar {
@@ -32,7 +32,7 @@
     .menuContainer { width: 50%; }
 }
 
-@media (orientation: portrait) {
+@media (orientation: portrait), (max-width: 1000px) {
     .menuContainer { width: 70%; }
 }
 
@@ -85,7 +85,7 @@
 }
 
 .menu {
-    width: 66.66%;
+    width: 75%;
     height: inherit;
     display: flex;
     flex-direction: row;

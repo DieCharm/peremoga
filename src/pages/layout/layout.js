@@ -1,12 +1,13 @@
 import React, {useEffect} from 'react';
 import MenuItem from "./features/menu-item/menu_item";
-import {menu_items_texts} from "../../texts/menu_items_texts";
+import {menu_items_texts} from "../../texts/layout_texts";
 import LangSwitcher from "./features/lang-switcher/lang_switcher";
 import styles from "./layout.module.css";
 import {useState} from "react";
 import {AppContext} from "../../context";
 import {Outlet, useNavigate} from "react-router";
 import Picture from "./features/picture/picture";
+import Footer from "./features/footer/footer";
 
 const LayoutPage = () => {
 
@@ -30,7 +31,7 @@ const LayoutPage = () => {
     return (
         <AppContext.Provider value={{lang, set_lang, redirect_to}}>
             <div className={styles.main}>
-                <Picture />
+                <Picture/>
                 <div
                     onClick={() => set_redirect_to("")}
                     onMouseEnter={() => set_logo_underline_active(true)}
@@ -62,6 +63,7 @@ const LayoutPage = () => {
                     </div>
                 </div>
                 <Outlet />
+                <Footer />
                 <div className={[styles.background, styles.position1].join(" ")} />
                 <div className={[styles.background, styles.position2].join(" ")} />
             </div>

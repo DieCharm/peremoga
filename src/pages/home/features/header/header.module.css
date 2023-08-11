@@ -49,11 +49,22 @@ p {
     top: 55%;
 }
 
-@media (max-width: 560px) {
+@media (orientation: portrait) and (max-width: 560px) {
     .headerContainer {
         width: 20em;
         height: 8em;
-        margin-top: -25%;
+        margin-top: -35%;
+    }
+    h1 {
+        font-size: 2.5em;
+    }
+}
+
+@media (orientation: landscape) and (max-width: 1000px) {
+    .headerContainer {
+        width: 20em;
+        height: 8em;
+        margin-top: 0;
     }
     h1 {
         font-size: 2.5em;

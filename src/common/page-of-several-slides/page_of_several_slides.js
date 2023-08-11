@@ -3,7 +3,7 @@ import {AppContext} from "../../context";
 import {CSSTransition} from "react-transition-group";
 import {useRef, useState} from "react";
 import {useEffect} from "react";
-import styles from "./page_of_several_slides.module.css";
+import styles from "./page_of_several_slides.module.scss";
 
 const PageOfSeveralSlides = ({slides, enter_classes, exit_classes}) => {
 

@@ -18,11 +18,13 @@
 }
 
 .bgAppear {
-    animation: appear 1s !important;
+    animation: appear 1s;
+    animation-timing-function: linear;
 }
 
 .bgDisappear {
-    animation: appear 1s !important;
+    animation: appear 1s;
+    animation-timing-function: linear;
     animation-direction: reverse;
 }
 

@@ -5,7 +5,8 @@ import AnimatedContentSwitcher from "../../../../common/animated-content-switche
 const Picture = React.memo(() => {
 
     const bgStyles = [styles.bg0, styles.bg1, styles.bg2, styles.bg3];
-    const elements = bgStyles.map(bg_style => <div className={[styles.picture, bg_style].join(" ")} />)
+    const elements = bgStyles.map(bg_style =>
+        <div className={[styles.picture, bg_style].join(" ")} />)
 
     return (
         <AnimatedContentSwitcher

@@ -1,0 +1,6 @@
+@use "src/styles/_mixins.scss";
+
+.mainContainer {
+  @include mixins.fullscreen_container;
+  @include mixins.flex_centralized_container_row;
+}

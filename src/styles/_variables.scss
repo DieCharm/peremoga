@@ -1,0 +1,16 @@
+$bg-color: #0F0359;
+$text-color: #e6e1ff;
+$fg-color: rgb(155, 129, 231);
+$fonts-path: "../static/fonts";
+
+@font-face {
+  font-family: "LunasimaBold";
+  src: local("Lunasima-Bold"),
+  url("#{$fonts-path}/Lunasima-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "LunasimaRegular";
+  src: local("Lunasima-Regular"),
+  url("#{$fonts-path}/Lunasima-Regular.ttf") format("truetype");
+}

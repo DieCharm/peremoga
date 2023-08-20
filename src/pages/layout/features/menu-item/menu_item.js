@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import styles from "./menu_item.module.css";
+import styles from "./menu_item.module.scss";
 
 const MenuItem = ({text, callback}) => {
 

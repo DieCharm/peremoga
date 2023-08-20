@@ -1,3 +1,6 @@
-@at-root {
+@use "src/styles/variables";
+
+@at-root * {
     font-family: LunasimaRegular, sans-serif;
+    color: variables.$text-color;
 }

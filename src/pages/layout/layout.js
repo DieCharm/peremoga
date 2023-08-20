@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import MenuItem from "./features/menu-item/menu_item";
 import {menu_items_texts} from "../../texts/layout_texts";
 import LangSwitcher from "./features/lang-switcher/lang_switcher";
-import styles from "./layout.module.css";
+import styles from "./layout.module.scss";
 import {useState} from "react";
 import {AppContext} from "../../context";
 import {Outlet, useNavigate} from "react-router";
@@ -31,7 +31,7 @@ const LayoutPage = () => {
     return (
         <AppContext.Provider value={{lang, set_lang, redirect_to}}>
             <div className={styles.main}>
-                <Picture/>
+                <Picture />
                 <div
                     onClick={() => set_redirect_to("")}
                     onMouseEnter={() => set_logo_underline_active(true)}

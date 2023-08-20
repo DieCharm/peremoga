@@ -1,6 +1,6 @@
 @use "src/styles/mixins";
 
-.mainContainer {
+.main {
   @include mixins.fullscreen_container;
-  @include mixins.flex_centralized_container_row;
+  background-color: rgba(0,200,0,0.3);
 }

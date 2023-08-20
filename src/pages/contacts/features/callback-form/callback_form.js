@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import styles from "./callback_form.module.css";
+import styles from "./callback_form.module.scss";
 import {send_email} from "./send_email";
 
 const CallbackForm = () => {

@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useRef, useState} from 'react';
 import {AppContext, languages} from "../../../../context";
-import styles from "./lang_switcher.module.css";
+import styles from "./lang_switcher.module.scss";
 import {CSSTransition} from "react-transition-group";
 
 const LangSwitcher = () => {

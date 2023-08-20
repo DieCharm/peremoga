@@ -1,0 +1,229 @@
+@use "src/styles/mixins";
+@use "src/styles/variables";
+@use "src/styles/animations";
+@use "sass:math";
+
+@keyframes slideInUp {
+    0% {
+        transform: translateY(100%);
+    }
+    50% {
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+    }
+    100% {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        transform: translateY(0);
+    }
+}
+
+.mainWrapper {
+    @include mixins.fullscreen_container;
+    background-color: rgba(variables.$bg-color, .5);
+}
+
+.mainWrapper.entering {
+    animation: slideInUp 1s;
+}
+
+.mainWrapper.exiting {
+    animation: slideInUp 1s;
+    animation-direction: reverse;
+}
+
+.boxesContainer {
+    position: fixed;
+    top: 15%;
+    left: 10%;
+    bottom: 10%;
+    width: 80%;
+    height: 75%;
+    overflow-y: auto;
+    display: grid;
+}
+
+.entering .boxesContainer {
+    overflow: unset;
+}
+
+.exiting .boxesContainer {
+    overflow: unset;
+}
+
+.box {
+    z-index: 2;
+    border: rgb(155, 129, 231) 1px solid;
+    border-radius: 2em;
+    overflow: hidden;
+    color: #e6e1ff;
+    text-transform: uppercase;
+    background-size: cover;
+    background-position: center;
+    margin: 3% 3%;
+}
+
+@mixin mobile-animations {
+    @for $i from 0 to 6 {
+        @if ($i % 2 == 0) {
+            .entering .box#{$i} {
+                @include animations.slide-in__2;
+            }
+            .exiting .box#{$i} {
+                @include animations.slide-out__2;
+            }
+        }
+        @else {
+            .entering .box#{$i} {
+                @include animations.slide-in__6;
+            }
+            .exiting .box#{$i} {
+                @include animations.slide-out__6;
+            }
+        }
+    }
+}
+
+@mixin desktop-portrait-animations {
+    .entering .box1 {
+        @include animations.slide-in__7;
+    }
+    .exiting .box1 {
+        @include animations.slide-out__7;
+    }
+
+    .entering .box2 {
+        @include animations.slide-in__1;
+    }
+    .exiting .box2 {
+        @include animations.slide-out__1;
+    }
+
+    .entering .box3 {
+        @include animations.slide-in__6;
+    }
+    .exiting .box3 {
+        @include animations.slide-out__6;
+    }
+
+    .entering .box4 {
+        @include animations.slide-in__2;
+    }
+    .exiting .box4 {
+        @include animations.slide-out__2;
+    }
+
+    .entering .box5 {
+        @include animations.slide-in__5;
+    }
+    .exiting .box5 {
+        @include animations.slide-out__5;
+    }
+
+    .entering .box6 {
+        @include animations.slide-in__4;
+    }
+    .exiting .box6 {
+        @include animations.slide-out__4;
+    }
+}
+
+@mixin desktop-landscape-animations {
+    .entering .box1 {
+        @include animations.slide-in__7;
+    }
+    .exiting .box1 {
+        @include animations.slide-out__7;
+    }
+
+    .entering .box2 {
+        @include animations.slide-in__0;
+    }
+    .exiting .box2 {
+        @include animations.slide-out__0;
+    }
+
+    .entering .box3 {
+        @include animations.slide-in__1;
+    }
+    .exiting .box3 {
+        @include animations.slide-out__1;
+    }
+
+    .entering .box4 {
+        @include animations.slide-in__5;
+    }
+    .exiting .box4 {
+        @include animations.slide-out__5;
+    }
+
+    .entering .box5 {
+        @include animations.slide-in__4;
+    }
+    .exiting .box5 {
+        @include animations.slide-out__4;
+    }
+
+    .entering .box6 {
+        @include animations.slide-in__3;
+    }
+    .exiting .box6 {
+        @include animations.slide-out__3;
+    }
+}
+
+@include mixins.portrait__mobile {
+    .boxesContainer {
+        grid-template-rows: repeat(6, 50%);
+        grid-template-columns: auto;
+        height: 68%;
+        top: 17%;
+        bottom: 15%;
+    }
+    @include mobile-animations;
+}
+
+@include mixins.landscape__mobile {
+    .boxesContainer {
+        grid-template-rows: repeat(3, 100%);
+        grid-template-columns: repeat(2, 1fr);
+        width: 70%;
+        left: 15%;
+    }
+    @include mobile-animations;
+}
+
+@include mixins.portrait__desktop {
+    .boxesContainer {
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @include desktop-portrait-animations;
+}
+
+@include mixins.landscape__desktop {
+    .boxesContainer {
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+    }
+    @include desktop-landscape-animations;
+}
+
+.boxBg {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background: rgba(15, 3, 89, 0.5);
+}
+
+.boxBg:hover {
+    background: none;
+    opacity: 0.1;
+}
+
+.textWrapper {
+    margin: 4%;
+}

@@ -1,0 +1,86 @@
+@use "variables";
+@use "sass:math";
+
+@for $i from 0 to 8 {
+  $angle: math.div((45 * $i * math.$pi), 180);
+  @keyframes slide#{$i} {
+    0% {
+      transform: translateX(#{math.sin($angle) * 100}vw) translateY(#{math.cos($angle) * -100}vw);
+    }
+    100% {
+      transform: translateX(0) translateY(0);
+    }
+  }
+}
+
+@mixin slide-in__0 {
+  animation: slide0 #{variables.$animation-duration}ms;
+}
+
+@mixin slide-out__0 {
+  @include slide-in__0;
+  animation-direction: reverse;
+}
+
+@mixin slide-in__1 {
+  animation: slide1 #{variables.$animation-duration}ms;
+}
+
+@mixin slide-out__1 {
+  @include slide-in__1;
+  animation-direction: reverse;
+}
+
+@mixin slide-in__2 {
+  animation: slide2 #{variables.$animation-duration}ms;
+}
+
+@mixin slide-out__2 {
+  @include slide-in__2;
+  animation-direction: reverse;
+}
+
+@mixin slide-in__3 {
+  animation: slide3 #{variables.$animation-duration}ms;
+}
+
+@mixin slide-out__3 {
+  @include slide-in__3;
+  animation-direction: reverse;
+}
+
+@mixin slide-in__4 {
+  animation: slide4 #{variables.$animation-duration}ms;
+}
+
+@mixin slide-out__4 {
+  @include slide-in__4;
+  animation-direction: reverse;
+}
+
+@mixin slide-in__5 {
+  animation: slide5 #{variables.$animation-duration}ms;
+}
+
+@mixin slide-out__5 {
+  @include slide-in__5;
+  animation-direction: reverse;
+}
+
+@mixin slide-in__6 {
+  animation: slide6 #{variables.$animation-duration}ms;
+}
+
+@mixin slide-out__6 {
+  @include slide-in__6;
+  animation-direction: reverse;
+}
+
+@mixin slide-in__7 {
+  animation: slide7 #{variables.$animation-duration}ms;
+}
+
+@mixin slide-out__7 {
+  @include slide-in__7;
+  animation-direction: reverse;
+}

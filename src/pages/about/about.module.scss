@@ -1,0 +1,15 @@
+@use "src/styles/mixins";
+@use "src/styles/variables";
+
+@keyframes mainAppearance {
+  0% { opacity: 0 }
+  100% { opacity: 100% }
+}
+
+.main {
+  @include mixins.fullscreen_container;
+  @include mixins.flex_centralized_container;
+  z-index: 0;
+  background-color: rgba(variables.$bg-color, .5);
+  animation: mainAppearance #{variables.$animation-duration}ms;
+}

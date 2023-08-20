@@ -1,20 +1,20 @@
+@use "src/styles/mixins";
+@use "src/styles/variables";
+
 .langSwitcherContainer {
     width: 80%;
     height: 50%;
     padding: 0 10%;
     margin-top: 24%;
-    border: var(--text-color) 1px solid;
+    border: variables.$text-color 1px solid;
     border-radius: 0.5em;
     cursor: pointer;
     align-self: center;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    @include mixins.flex_space_between_container_row;
 }
 
 .langName {
-    color: var(--text-color);
+    color: variables.$text-color;
     display: block;
     font-size: 0.9em;
 }
@@ -23,7 +23,7 @@
     content: "";
     width: 0.7em;
     height: 0.5em;
-    background-color: var(--text-color);
+    background-color: variables.$text-color;
     clip-path: polygon(100% 0%, 0 0%, 50% 100%);
 }
 
@@ -36,15 +36,6 @@
     }
 }
 
-@keyframes rotateDown {
-    from {
-        transform: rotateX(180deg);
-    }
-    to {
-        transform: rotateX(0deg);
-    }
-}
-
 .arrowTurnsUp {
     animation: rotateUp 250ms;
 }
@@ -54,7 +45,7 @@
 }
 
 .arrowTurnsDown {
-    animation: rotateDown 250ms;
+    animation: rotateUp 250ms reverse;
 }
 
 .optionsContainer {
@@ -63,7 +54,7 @@
     border-radius: 0.5em;
     margin-top: 0.5vh;
     height: 150%;
-    border: var(--text-color) 1px solid;
+    border: variables.$text-color 1px solid;
     overflow: hidden;
     outline: none;
 }
@@ -82,28 +73,24 @@
 }
 
 .optionsExiting {
-    animation: dropdown 250ms;
-    animation-direction: reverse;
+    animation: dropdown 250ms reverse;
 }
 
 .optionContainer {
     width: 80%;
     height: 33.33%;
     padding: 0 10%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
     cursor: pointer;
+    @include mixins.flex_space_between_container_row;
 }
 
 .highlighted {
-    background-color: var(--fg-color);
+    background-color: variables.$fg-color;
 }
 
 .checkMark {
     width: 0.5em;
     height: 0.5em;
     border-radius: 50%;
-    background: var(--text-color);
+    background: variables.$text-color;
 }

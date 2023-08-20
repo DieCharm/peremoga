@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import styles from "./footer.module.css";
+import styles from "./footer.module.scss";
 import {developed_texts} from "../../../../texts/layout_texts";
 import {AppContext} from "../../../../context";
 
@@ -9,31 +9,27 @@ const Footer = () => {
 
     return (
         <div className={styles.footer}>
-            <div>
-                <span className={styles.copyright}>Перемога © 2023</span>
-            </div>
-            <div className={styles.linksWrapper}>
-                <div className={styles.socialWrapper}>
-                    <a
-                        className={[styles.socialIcon, styles.phone].join(" ")}
-                        href="tel:+380680757509" />
-                    <a
-                        className={[styles.socialIcon, styles.gmail].join(" ")}
-                        href="mailto:pobeda.darnica@gmail.com" />
-                    <a
-                        className={[styles.socialIcon, styles.instagram].join(" ")}
-                        href="https://www.instagram.com/" />
-                    <a
-                        className={[styles.socialIcon, styles.facebook].join(" ")}
-                        href="https://www.facebook.com/" />
-                </div>
-            </div>
-            <div className={styles.developerWrapper}>
-                <span>{developed_texts[lang]}</span>
+            <span className={styles.copyright}>Перемога © 2023</span>
+            <div className={styles.socialWrapper}>
                 <a
-                    className={[styles.socialIcon, styles.github].join(" ")}
-                    href="https://github.com/DieCharm/" />
+                    className={styles.phone}
+                    href="tel:+380680757509" />
+                <a
+                    className={styles.gmail}
+                    href="mailto:pobeda.darnica@gmail.com" />
+                <a
+                    className={styles.instagram}
+                    href="https://www.instagram.com/" />
+                <a
+                    className={styles.facebook}
+                    href="https://www.facebook.com/" />
             </div>
+            <a href="https://github.com/DieCharm/">
+                <div className={styles.developerWrapper}>
+                    <span>{developed_texts[lang]}</span>
+                    <div className={styles.github} />
+                </div>
+            </a>
         </div>
     );
 };

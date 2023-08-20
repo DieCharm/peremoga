@@ -1,0 +1,91 @@
+@use "src/styles/mixins";
+@use "src/styles/variables";
+@use "src/styles/animations";
+
+.headerContainer {
+    @include mixins.flex_centralized_container_column;
+    width: 25em;
+    height: 10em;
+    border: #e6e1ff .2em solid;
+    position: relative;
+    overflow: hidden;
+    margin-top: -12%;
+    background-color: rgba(variables.$fg-color, .6);
+
+    h1 {
+        color: #e6e1ff;
+        text-transform: uppercase;
+        font-size: 3em;
+        font-weight: bolder;
+        letter-spacing: .2em;
+        margin: 0;
+        position: absolute;
+        top: 25%;
+    }
+
+    p {
+        color: #e6e1ff;
+        text-transform: uppercase;
+        font-size: 1em;
+        position: absolute;
+        top: 55%;
+    }
+}
+
+.headerContainer.entering {
+    @include animations.slide-in__0;
+}
+
+.headerContainer.exiting {
+    @include animations.slide-out__0;
+}
+
+@include mixins.portrait__mobile {
+    .headerContainer {
+        width: 20em;
+        height: 8em;
+        margin-top: -35%;
+
+        h1 {
+            font-size: 2.5em;
+        }
+    }
+}
+
+@include mixins.landscape__mobile {
+    .headerContainer {
+        width: 20em;
+        height: 8em;
+        margin-top: 0;
+
+        h1 {
+            font-size: 2.5em;
+        }
+    }
+}
+
+@keyframes rightToLeftAppear {
+    0% {
+        transform: translateX(25em);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.textSlideIn {
+    animation: rightToLeftAppear 1000ms;
+}
+
+@keyframes rightToLeftDisappear {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-25em);
+    }
+}
+
+.textSlideOut {
+    animation: rightToLeftDisappear 1000ms;
+}

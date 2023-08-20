@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import styles from "./header.module.css";
+import styles from "./header.module.scss";
 import {home_texts} from "../../../../texts/home_texts";
 import {AppContext} from "../../../../context";
 import AnimatedContentSwitcher from "../../../../common/animated-content-switcher/animated_content_switcher";
@@ -16,7 +16,6 @@ const Header = React.memo(() => {
             <AnimatedContentSwitcher
                 elements={elements}
                 switch_timeout={2000}
-                animation_time={1000}
                 enter_class={styles.textSlideIn}
                 exit_class={styles.textSlideOut} />
         </div>

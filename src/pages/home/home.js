@@ -2,8 +2,8 @@ import React from 'react';
 import PageOfSeveralSlides from "../../common/page-of-several-slides/page_of_several_slides";
 import Header from "./features/header/header";
 import InfoBoxes from "./features/info-boxes/info_boxes";
-import header_styles from "./features/header/header.module.css";
-import info_boxes_styles from "./features/info-boxes/info-boxes.module.css";
+import header_styles from "./features/header/header.module.scss";
+import info_boxes_styles from "./features/info-boxes/info-boxes.module.scss";
 
 const HomePage = () => {
 

@@ -1,0 +1,136 @@
+@use "src/styles/animations";
+@use "src/styles/variables";
+@use "src/styles/mixins";
+
+.videoAndTextContainer {
+  height: 76%;
+  width: 80%;
+  //border: green 1px solid;
+}
+
+@include mixins.landscape__mobile {
+  .videoAndTextContainer {
+    width: 80%;
+    height: 65%;
+    margin-left: 5%;
+    align-items: flex-start !important;
+    @include mixins.flex_space_between_container_row;
+  }
+}
+@include mixins.landscape__desktop {
+  .videoAndTextContainer {
+    align-items: flex-start !important;
+    @include mixins.flex_space_between_container_row;
+  }
+}
+@include mixins.portrait__mobile {
+  .videoAndTextContainer {
+    width: 90%;
+    height: 50%;
+    @include mixins.flex_space_between_container_column;
+  }
+}
+@include mixins.portrait__desktop {
+  .videoAndTextContainer {
+    height: 55%;
+    margin-top: -10%;
+    @include mixins.flex_space_between_container_column;
+  }
+}
+
+.videoContainer {
+  border: variables.$fg-color 2px solid;
+  z-index: 1;
+  border-radius: 2em;
+  overflow: hidden;
+}
+
+@include mixins.landscape {
+  .videoContainer {
+    height: 100%;
+  }
+
+  .entering .videoContainer {
+    @include animations.slide-in__2;
+  }
+  .exiting .videoContainer {
+    @include animations.slide-out__2;
+  }
+}
+
+@include mixins.portrait {
+  .videoContainer {
+    width: 100%;
+  }
+
+  .entering .videoContainer {
+    @include animations.slide-in__4;
+  }
+  .exiting .videoContainer {
+    @include animations.slide-out__4;
+  }
+}
+@include mixins.portrait__mobile {
+  .videoContainer {
+    height: 60%;
+  }
+}
+
+.textContainer {
+  h1 {
+    text-transform: uppercase;
+    text-decoration: underline variables.$fg-color 1px solid;
+    text-underline-offset: .1em;
+    display: block;
+    margin-right: 1em;
+    margin-bottom: 1em;
+  }
+}
+
+@include mixins.landscape {
+  .textContainer {
+    margin-right: 2em;
+    @include mixins.flex_space_between_container_column;
+  }
+
+  .entering .textContainer {
+    @include animations.slide-in__6;
+  }
+  .exiting .textContainer {
+    @include animations.slide-out__6;
+  }
+}
+@include mixins.landscape__mobile {
+  .textContainer {
+    height: 100%;
+    width: 35%;
+  }
+}
+@include mixins.landscape__desktop {
+  .textContainer {
+    height: 50%;
+    width: 20%;
+  }
+}
+
+@include mixins.portrait {
+  .textContainer {
+    height: 30%;
+    width: 100%;
+    @include mixins.flex_space_between_container_row;
+  }
+
+  .entering .textContainer {
+    @include animations.slide-in__0;
+  }
+  .exiting .textContainer {
+    @include animations.slide-out__0;
+  }
+}
+
+@include mixins.landscape__mobile {
+  h1 {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}

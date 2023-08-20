@@ -3,6 +3,7 @@ import {AppContext} from "../../context";
 import {CSSTransition} from "react-transition-group";
 import {useRef, useState} from "react";
 import {useEffect} from "react";
+import variables from "../../styles/_variables.scss";
 import styles from "./page_of_several_slides.module.scss";
 
 const PageOfSeveralSlides = ({slides, enter_classes, exit_classes}) => {
@@ -76,7 +77,7 @@ const PageOfSeveralSlides = ({slides, enter_classes, exit_classes}) => {
                 <CSSTransition
                     key={index}
                     in={redirect_to === null && slide_number === index && show_slide}
-                    timeout={1000}
+                    timeout={Number(variables.animationDuration) - 50}
                     classNames={{
                         enterActive: enter_classes[index],
                         exitActive: exit_classes[index]}}

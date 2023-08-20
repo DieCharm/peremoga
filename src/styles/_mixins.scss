@@ -6,10 +6,24 @@
   height: 100%;
 }
 
-@mixin flex_centralized_container {
+@mixin flex_container {
   display: flex;
   align-items: center;
+}
+
+@mixin flex_centralized_container {
+  @include flex_container;
   justify-content: center;
+}
+
+@mixin flex_space_between_container {
+  @include flex_container;
+  justify-content: space-between;
+}
+
+@mixin flex_flex_end_container {
+  @include flex_container;
+  justify-content: flex-end;
 }
 
 @mixin flex_centralized_container_row {
@@ -19,5 +33,61 @@
 
 @mixin flex_centralized_container_column {
   @include flex_centralized_container;
+  flex-direction: column;
+}
+
+@mixin flex_space_between_container_row {
+  @include flex_space_between_container;
   flex-direction: row;
+}
+
+@mixin flex_space_between_container_column {
+  @include flex_space_between_container;
+  flex-direction: column;
+}
+
+@mixin flex_flex_end_container_row {
+  @include flex_flex_end_container;
+  flex-direction: row;
+}
+
+@mixin flex_flex_end_container_column {
+  @include flex_flex_end_container;
+  flex-direction: column;
+}
+
+@mixin landscape {
+  @media (orientation: landscape) {
+    @content;
+  }
+}
+
+@mixin portrait {
+  @media (orientation: portrait) {
+    @content;
+  }
+}
+
+@mixin landscape__mobile {
+  @media (orientation: landscape) and (max-height: 560px) {
+    @content;
+  }
+}
+
+@mixin landscape__desktop {
+  @media (orientation: landscape) and (min-height: 560px) {
+    @content;
+  }
+}
+
+@mixin portrait__mobile {
+  @media (max-width: 560px) {
+    @content;
+  }
+}
+
+@mixin portrait__desktop {
+  @media (orientation: portrait) and (min-width: 560px) {
+    @content;
+  }
 }

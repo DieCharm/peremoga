@@ -1,12 +1,11 @@
 import React from 'react';
-import styles from "./picture.module.css";
+import styles from "./picture.module.scss";
 import AnimatedContentSwitcher from "../../../../common/animated-content-switcher/animated_content_switcher";
 
 const Picture = React.memo(() => {
 
-    const bgStyles = [styles.bg0, styles.bg1, styles.bg2, styles.bg3];
-    const elements = bgStyles.map(bg_style =>
-        <div className={[styles.picture, bg_style].join(" ")} />)
+    const bg_styles = [styles.bg0, styles.bg1, styles.bg2, styles.bg3];
+    const elements = bg_styles.map(bg_style => <div className={bg_style} />);
 
     return (
         <AnimatedContentSwitcher

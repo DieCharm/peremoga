@@ -1,0 +1,72 @@
+@use "src/styles/mixins";
+@use "src/styles/variables";
+
+%picture {
+    @include mixins.fullscreen_container;
+    background-position: center;
+    background-size: cover;
+}
+
+@include mixins.portrait__mobile {
+    %picture {
+        animation: bgBias 6s;
+        animation-timing-function: linear;
+    }
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 100%;
+    }
+}
+
+.bgAppear {
+    animation: appear #{variables.$animation-duration}ms !important;
+    animation-timing-function: linear;
+}
+
+.bgDisappear {
+    animation: appear #{variables.$animation-duration}ms !important;
+    animation-timing-function: linear;
+    animation-direction: reverse;
+}
+
+.bg0 {
+    @extend %picture;
+    background-image:
+            linear-gradient(rgba(1, 1, 1, 0.8), transparent 30%),
+            url("../../../../static/img/home_bg0.jpeg");
+}
+
+.bg1 {
+    @extend %picture;
+    background-image:
+            linear-gradient(rgba(1, 1, 1, 0.8), transparent 30%),
+            url("../../../../static/img/home_bg1.jpeg");
+}
+
+.bg2 {
+    @extend %picture;
+    background-image:
+            linear-gradient(rgba(1, 1, 1, 0.8), transparent 30%),
+            url("../../../../static/img/home_bg2.jpeg");
+}
+
+.bg3 {
+    @extend %picture;
+    background-image:
+            linear-gradient(rgba(1, 1, 1, 0.8), transparent 30%),
+            url("../../../../static/img/home_bg3.jpeg");
+}
+
+@keyframes bgBias {
+    0% {
+        background-position-x: center;
+    }
+    100% {
+        background-position-x: 30%;
+    }
+}

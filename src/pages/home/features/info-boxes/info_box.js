@@ -1,8 +1,7 @@
 import React from 'react';
-import styles from "./info-boxes.module.css";
+import styles from "./info-boxes.module.scss";
 
 const InfoBox = ({index, name, image, text}) => {
-    console.log(styles[`box${index}`]);
     return (
         <div
             style={{backgroundImage: `url(${image})`}}

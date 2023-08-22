@@ -5,7 +5,6 @@
 .contentAndTextContainer {
   z-index: 99;
   position: relative;
-  border: red 1px solid;
 }
 
 @include mixins.landscape__mobile {
@@ -36,7 +35,6 @@
 }
 
 %contentWrapper {
-  border: blue 1px solid;
   position: absolute;
 }
 
@@ -45,13 +43,6 @@
     height: 100%;
     width: 80%;
     top: 0;
-  }
-
-  .entering %contentWrapper {
-    @include animations.slide-in__2;
-  }
-  .exiting %contentWrapper {
-    @include animations.slide-out__2;
   }
 }
 
@@ -86,13 +77,30 @@
   left: 0;
 }
 
+@include mixins.landscape {
+  .entering .contentWrapperLeft {
+    @include animations.slide-in__6;
+  }
+  .exiting .contentWrapperLeft {
+    @include animations.slide-out__6;
+  }
+}
+
 .contentWrapperRight {
   @extend %contentWrapper;
   right: 0;
 }
 
+@include mixins.landscape {
+  .entering .contentWrapperRight {
+    @include animations.slide-in__2;
+  }
+  .exiting .contentWrapperRight {
+    @include animations.slide-out__2;
+  }
+}
+
 %textWrapper {
-  border: green 1px solid;
   position: absolute;
   top: 0;
 
@@ -158,6 +166,16 @@
   left: 0;
   margin-right: 2em;
 }
+
+@include mixins.landscape {
+  .entering .textWrapperLeft {
+    @include animations.slide-in__6;
+  }
+  .exiting .textWrapperLeft {
+    @include animations.slide-out__6;
+  }
+}
+
 .textWrapperRight {
   @extend %textWrapper;
   right: 0;
@@ -165,5 +183,14 @@
 
   p {
     text-align: right;
+  }
+}
+
+@include mixins.landscape {
+  .entering .textWrapperRight {
+    @include animations.slide-in__2;
+  }
+  .exiting .textWrapperRight {
+    @include animations.slide-out__2;
   }
 }

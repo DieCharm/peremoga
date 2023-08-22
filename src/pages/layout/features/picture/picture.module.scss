@@ -1,6 +1,10 @@
 @use "src/styles/mixins";
 @use "src/styles/variables";
 
+.pictureWrapper {
+    @include mixins.fullscreen_container;
+}
+
 %picture {
     @include mixins.fullscreen_container;
     background-position: center;
@@ -9,7 +13,7 @@
 
 @include mixins.portrait__mobile {
     %picture {
-        animation: bgBias 6s;
+        animation: bgBias 5050ms;
         animation-timing-function: linear;
     }
 }
@@ -24,14 +28,19 @@
 }
 
 .bgAppear {
-    animation: appear #{variables.$animation-duration}ms !important;
+    animation: appear 2s !important;
     animation-timing-function: linear;
 }
 
 .bgDisappear {
-    animation: appear #{variables.$animation-duration}ms !important;
+    animation: appear 2s reverse !important;
     animation-timing-function: linear;
-    animation-direction: reverse;
+}
+
+@include mixins.portrait__mobile {
+    .bgDisappear {
+        background-position-x: 30%;
+    }
 }
 
 .bg0 {

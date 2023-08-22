@@ -1,0 +1,17 @@
+@use "src/styles/mixins";
+
+.contactsWrapper {
+  width: 100%;
+  height: 100%;
+  @include mixins.flex_space_between_container_column;
+}
+
+.contactWrapper {
+  width: 100%;
+  @include mixins.flex_space_between_container_row;
+
+  p {
+    display: block;
+    text-transform: uppercase;
+  }
+}

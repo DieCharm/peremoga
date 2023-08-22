@@ -1,10 +1,23 @@
 import React from 'react';
 import styles from "./contacts.module.scss";
+import PageOfSeveralSlides from "../../common/page-of-several-slides/page_of_several_slides";
+import CallbackForm from "./features/callback-form/callback_form";
+import ContactsList from "./features/contacts-list/contacts_list";
+import GoogleMap from "./features/map/google_map";
 
 const ContactsPage = () => {
+
     return (
         <div className={styles.main}>
-            <h1>Contacts</h1>
+            <PageOfSeveralSlides
+                slides={[
+                    <div className={styles.wrapper}>
+                        <ContactsList />
+                        <CallbackForm />
+                        <GoogleMap />
+                    </div>]}
+                enter_classes={[styles.entering]}
+                exit_classes={[styles.exiting]}/>
         </div>
     );
 };

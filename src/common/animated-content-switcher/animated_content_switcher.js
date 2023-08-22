@@ -9,7 +9,7 @@ const AnimatedContentSwitcher =
                     switch_timeout,
                     enter_class,
                     exit_class,
-                    animation_time = Number(variables.animationDuration) - 50,
+                    animation_time = Number(variables.animationDuration),
                     handle_element_change = null,
                     initial_element_number = 0
     }) => {
@@ -38,7 +38,7 @@ const AnimatedContentSwitcher =
                     <CSSTransition
                         key={index}
                         in={index === element_number}
-                        timeout={animation_time}
+                        timeout={animation_time - 50}
                         classNames={{
                             enterActive: enter_class,
                             exitActive: exit_class}}

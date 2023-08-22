@@ -63,7 +63,7 @@ const CallbackForm = () => {
     }
 
     return (
-        <div className={styles.formContainer}>
+        <div className={styles.formWrapper}>
             <form className={styles.callbackForm} onChange={on_form_change}>
                 <label>Ім'я</label>
                 <div>{form_data.name.error && <span className={styles.red}>Введіть своє ім'я будь-ласка</span>}</div>

@@ -1,5 +1,5 @@
-import React, {useEffect} from 'react';
-import MenuItem from "./features/menu-item/menu_item";
+import React, {useEffect, useRef} from 'react';
+import UnderlinableLink from "../../common/underlinable-link/underlinable_link";
 import {menu_items_texts} from "../../texts/layout_texts";
 import LangSwitcher from "./features/lang-switcher/lang_switcher";
 import styles from "./layout.module.scss";
@@ -28,9 +28,15 @@ const LayoutPage = () => {
         return () => clearTimeout(timeout_ID);
     }, [redirect_to]);
 
+    const handle_touch_end = (event) => {
+        event.stopPropagation();
+        //console.log(`top ${window.scrollY}`);
+        //setTimeout(() => window.scrollTo(0, 1), 200);
+    }
+
     return (
         <AppContext.Provider value={{lang, set_lang, redirect_to}}>
-            <div className={styles.main}>
+            <div onTouchEnd={handle_touch_end} className={styles.main}>
                 <Picture />
                 <div
                     onClick={() => set_redirect_to("")}
@@ -47,12 +53,12 @@ const LayoutPage = () => {
                     <div className={styles.menuContainer}>
                         <div className={styles.menu}>
                             <div className={styles.menuItemContainer}>
-                                <MenuItem
+                                <UnderlinableLink
                                     text={menu_items_texts["about"][lang]}
                                     callback={() => set_redirect_to("about")} />
                             </div>
                             <div className={styles.menuItemContainer}>
-                                <MenuItem
+                                <UnderlinableLink
                                     text={menu_items_texts["contacts"][lang]}
                                     callback={() => set_redirect_to("contacts")} />
                             </div>

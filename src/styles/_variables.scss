@@ -16,6 +16,12 @@ $fonts-path: "../static/fonts";
   url("#{$fonts-path}/Lunasima-Regular.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "Header";
+  src: local("BebasNeue-Regular"),
+  url("#{$fonts-path}/BebasNeue-Regular.ttf") format("truetype");
+}
+
 :export {
   animationDuration: $animation-duration;
 }

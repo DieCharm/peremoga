@@ -13,6 +13,7 @@
     background-color: rgba(variables.$fg-color, .6);
 
     h1 {
+        font-family: Header, sans-serif;
         color: #e6e1ff;
         text-transform: uppercase;
         font-size: 3em;
@@ -21,6 +22,7 @@
         margin: 0;
         position: absolute;
         top: 25%;
+        white-space: nowrap;
     }
 
     p {
@@ -29,6 +31,7 @@
         font-size: 1em;
         position: absolute;
         top: 55%;
+        white-space: nowrap;
     }
 }
 
@@ -42,7 +45,7 @@
 
 @include mixins.portrait__mobile {
     .headerContainer {
-        width: 20em;
+        width: 22em;
         height: 8em;
         margin-top: -35%;
 
@@ -54,7 +57,7 @@
 
 @include mixins.landscape__mobile {
     .headerContainer {
-        width: 20em;
+        width: 22em;
         height: 8em;
         margin-top: 0;
 

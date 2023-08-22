@@ -10,7 +10,7 @@ const Video = ({video_path}) => {
             <video
                 height={(container_ref.current?.width / container_ref.current?.height) > (848 / 464) ? "auto" : "100%"}
                 width={(container_ref.current?.width / container_ref.current?.height) > (848 / 464) ? "100%" : "auto"}
-                controls={false} autoPlay loop muted>
+                controls={true} autoPlay loop muted>
                 <source src={video_path} type="video/mp4" />
             </video>
         </div>

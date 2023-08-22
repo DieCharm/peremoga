@@ -12,7 +12,7 @@ const Header = React.memo(() => {
 
     return (
         <div className={styles.headerContainer}>
-            <h1>{home_texts["h1"][lang]}</h1>
+            <h1>peremoga hall</h1>
             <AnimatedContentSwitcher
                 elements={elements}
                 switch_timeout={2000}

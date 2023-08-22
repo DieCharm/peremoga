@@ -1,6 +1,29 @@
 @use "src/styles/mixins";
+@use "src/styles/variables";
+@use "src/styles/animations";
 
 .main {
   @include mixins.fullscreen_container;
-  background-color: rgba(0,200,0,0.3);
+  background-color: rgba(variables.$bg-color, .5);
+}
+
+.wrapper {
+  width: 80%;
+  height: 90%;
+  display: grid;
+}
+
+@include mixins.landscape__desktop {
+  .wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+}
+
+.wrapper.entering {
+  @include animations.slide-in__0;
+}
+
+.wrapper.exiting {
+  @include animations.slide-out__0;
 }

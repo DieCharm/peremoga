@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import styles from "./menu_item.module.scss";
+import styles from "./underlinable_link.module.scss";
 
-const MenuItem = ({text, callback}) => {
+const UnderlinableLink = ({text, callback = () => {}}) => {
 
     const [underline_active, set_underline_active] = useState(false);
 
@@ -25,4 +25,4 @@ const MenuItem = ({text, callback}) => {
     );
 };
 
-export default MenuItem;
+export default UnderlinableLink;

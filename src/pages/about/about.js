@@ -9,6 +9,9 @@ import content_and_text_styles from "./features/content-and-text/content_and_tex
 import Video from "./features/video/video";
 import video_path from "../../static/img/video.mp4";
 import {about_texts} from "../../texts/about_texts";
+import Image from "./features/image/image";
+import image1_path from "../../static/img/presentation.jpeg";
+import image2_path from "../../static/img/misc.jpeg";
 
 const AboutPage = () => {
 
@@ -17,11 +20,22 @@ const AboutPage = () => {
     const video_and_text = <ContentAndText
         content={<Video video_path={video_path} />}
         header={about_texts["h1_near_video"][lang]}
-        text={about_texts["text_near_video"][lang]} inverse={true} />;
+        text={about_texts["text_near_video"][lang]} />;
 
-    const slides = [<ImageCarousel />, video_and_text];
-    const enter_classes = [image_carousel_styles.entering, content_and_text_styles.entering];
-    const exit_classes = [image_carousel_styles.exiting, content_and_text_styles.exiting];
+    const image_and_text1 = <ContentAndText
+        content={<Image image_path={image1_path} />}
+        header={about_texts["h1_near_video"][lang]}
+        text={about_texts["text_near_video"][lang]}
+        inverse={true} />
+
+    const image_and_text2 = <ContentAndText
+        content={<Image image_path={image2_path} />}
+        header={about_texts["h1_near_video"][lang]}
+        text={about_texts["text_near_video"][lang]} />
+
+    const slides = [<ImageCarousel />, video_and_text, image_and_text1, image_and_text2];
+    const enter_classes = [image_carousel_styles.entering, content_and_text_styles.entering, content_and_text_styles.entering, content_and_text_styles.entering];
+    const exit_classes = [image_carousel_styles.exiting, content_and_text_styles.exiting, content_and_text_styles.exiting, content_and_text_styles.exiting];
 
     return (
         <div className={styles.main}>

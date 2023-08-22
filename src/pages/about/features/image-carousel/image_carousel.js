@@ -11,14 +11,22 @@ const ImageCarousel = () => {
     const [exit_class, set_exit_class] = useState(styles.imageDisappearanceToLeft);
     const [enter_class, set_enter_class] = useState(styles.imageAppearanceFromRight);
     const [prev_screen_X, set_prev_screen_X] = useState(0);
+    const [prev_screen_Y, set_prev_screen_Y] = useState(0);
+
+    const handle_touch_start = (event) => {
+        set_prev_screen_X(event.touches[0].screenX);
+        set_prev_screen_Y(event.touches[0].screenY);
+    }
 
     const handle_touch_end = (event) => {
-        event.stopPropagation();
-        if (event.changedTouches[0]?.screenX < prev_screen_X) {
-            handle_image_number_increment()
-        }
-        else if (event.changedTouches[0]?.screenX > prev_screen_X) {
-            handle_image_number_decrement();
+        if (Math.abs(prev_screen_Y - event.changedTouches[0]?.screenY) < Math.abs(prev_screen_X - event.changedTouches[0]?.screenX)) {
+            event.stopPropagation();
+            if (event.changedTouches[0]?.screenX < prev_screen_X) {
+                handle_image_number_increment()
+            }
+            else if (event.changedTouches[0]?.screenX > prev_screen_X) {
+                handle_image_number_decrement();
+            }
         }
     }
 
@@ -53,8 +61,7 @@ const ImageCarousel = () => {
     return (
         <div
             className={styles.carouselContainer}
-            onTouchStart={(event) =>
-                set_prev_screen_X(event.touches[0].screenX)}
+            onTouchStart={handle_touch_start}
             onTouchEnd={handle_touch_end}>
 
             <AnimatedContentSwitcher

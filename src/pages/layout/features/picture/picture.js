@@ -8,12 +8,14 @@ const Picture = React.memo(() => {
     const elements = bg_styles.map(bg_style => <div className={bg_style} />);
 
     return (
-        <AnimatedContentSwitcher
-            elements={elements}
-            switch_timeout={5000}
-            animation_time={1000}
-            enter_class={styles.bgAppear}
-            exit_class={styles.bgDisappear} />
+        <div>
+            <AnimatedContentSwitcher
+                elements={elements}
+                switch_timeout={7000}
+                animation_time={2000}
+                enter_class={styles.bgAppear}
+                exit_class={styles.bgDisappear} />
+        </div>
     );
 });
 

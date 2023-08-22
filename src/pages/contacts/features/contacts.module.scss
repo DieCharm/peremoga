@@ -1,6 +1,0 @@
-@use "src/styles/mixins";
-
-.main {
-  @include mixins.fullscreen_container;
-  background-color: rgba(0, 190, 0, 0.4);
-}

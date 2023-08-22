@@ -176,9 +176,10 @@
     .boxesContainer {
         grid-template-rows: repeat(6, 50%);
         grid-template-columns: auto;
-        height: 68%;
-        top: 17%;
-        bottom: 15%;
+        width: 90%;
+        left: 5%;
+        height: 65%;
+        top: 20%;
     }
     @include mobile-animations;
 }
@@ -212,16 +213,14 @@
 .boxBg {
     height: 100%;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    background: rgba(15, 3, 89, 0.5);
+    @include mixins.flex_centralized_container_column;
+    justify-content: flex-start !important;
+    background: rgba(variables.$bg-color, .5);
+    cursor: default;
 }
 
 .boxBg:hover {
-    background: none;
-    opacity: 0.1;
+    opacity: 0;
 }
 
 .textWrapper {

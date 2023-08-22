@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import styles from "./footer.module.scss";
-import {developed_texts} from "../../../../texts/layout_texts";
+import {developer_texts} from "../../../../texts/layout_texts";
 import {AppContext} from "../../../../context";
 
 const Footer = () => {
@@ -26,7 +26,11 @@ const Footer = () => {
             </div>
             <a href="https://github.com/DieCharm/">
                 <div className={styles.developerWrapper}>
-                    <span>{developed_texts[lang]}</span>
+                    {developer_texts[lang].split("").map((char, index) =>
+                        <div
+                            className={styles[`charWrapper${developer_texts[lang].length === 11 ? index : index + 1}`]}>
+                            {char}
+                        </div>)}
                     <div className={styles.github} />
                 </div>
             </a>

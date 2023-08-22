@@ -3,4 +3,4 @@ export const menu_items_texts = {
     "contacts": ["контакти", "контакты", "contacts"]
 }
 
-export const developed_texts = ["розроблено", "разработано", "developed"]
+export const developer_texts = ["Розробник", "Разработчик", "Developer"];

@@ -29,14 +29,14 @@ const LayoutPage = () => {
     }, [redirect_to]);
 
     const handle_touch_end = (event) => {
-        event.stopPropagation();
-        //console.log(`top ${window.scrollY}`);
-        //setTimeout(() => window.scrollTo(0, 1), 200);
+        window.scrollTo(0, 1); // wait for https
     }
 
     return (
         <AppContext.Provider value={{lang, set_lang, redirect_to}}>
-            <div onTouchEnd={handle_touch_end} className={styles.main}>
+            <div
+                onTouchEnd={handle_touch_end}
+                className={styles.main}>
                 <Picture />
                 <div
                     onClick={() => set_redirect_to("")}

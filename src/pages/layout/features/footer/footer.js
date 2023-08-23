@@ -9,7 +9,7 @@ const Footer = () => {
 
     return (
         <div className={styles.footer}>
-            <span className={styles.copyright}>Перемога © 2023</span>
+            <span className={styles.copyright}>Перемога <wbr/>© 2023</span>
             <div className={styles.socialWrapper}>
                 <a
                     className={styles.phone}
@@ -24,16 +24,18 @@ const Footer = () => {
                     className={styles.facebook}
                     href="https://www.facebook.com/" />
             </div>
-            <a href="https://github.com/DieCharm/">
-                <div className={styles.developerWrapper}>
-                    {developer_texts[lang].split("").map((char, index) =>
-                        <div
-                            className={styles[`charWrapper${developer_texts[lang].length === 11 ? index : index + 1}`]}>
-                            {char}
-                        </div>)}
-                    <div className={styles.github} />
-                </div>
-            </a>
+            <div className={styles.flexEndWrapper}>
+                <a href="https://github.com/DieCharm/">
+                    <div className={styles.developerWrapper}>
+                        {developer_texts[lang].split("").map((char, index) =>
+                            <div
+                                className={styles[`charWrapper${developer_texts[lang].length === 11 ? index : index + 1}`]}>
+                                {char}
+                            </div>)}
+                        <div className={styles.github} />
+                    </div>
+                </a>
+            </div>
         </div>
     );
 };

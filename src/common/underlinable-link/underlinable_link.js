@@ -8,18 +8,17 @@ const UnderlinableLink = ({text, callback = () => {}}) => {
     return (
         <div>
             <span
-                className={styles.menuItemText}
+                className={styles.itemText}
                 onClick={callback}
                 onMouseEnter={() => set_underline_active(true)}
                 onMouseLeave={() => set_underline_active(false)}>
                 {text}
             </span>
-            <div className={styles.menuItemUnderlineContainer}>
+            <div className={styles.itemUnderlineContainer}>
                 <div
-                    className={[
-                    styles.menuItemUnderlineInactive,
-                    (underline_active ? styles.menuItemUnderlineActive : "")
-                    ].join(" ")}/>
+                    className={underline_active
+                        ? styles.itemUnderlineActive
+                        : styles.itemUnderlineInactive}/>
             </div>
         </div>
     );

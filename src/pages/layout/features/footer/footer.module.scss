@@ -11,10 +11,13 @@
     left: 0;
     background: rgba(variables.$bg-color, .8);
     color: variables.$text-color;
-    @include mixins.flex_space_between_container_row;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
 }
 
 span {
+    margin: auto;
     text-transform: uppercase;
 }
 
@@ -24,6 +27,7 @@ span {
 }
 
 .socialWrapper {
+    margin: auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto;
@@ -96,7 +100,12 @@ a {
     color: var(--text-color);
 }
 
+.flexEndWrapper {
+    @include mixins.flex_flex_end_container_row;
+}
+
 .developerWrapper {
+    margin-top: auto;
     height: 4em;
     width: 8em;
     position: relative;
@@ -104,12 +113,30 @@ a {
 }
 
 %charWrapper {
-    height: 3em;
+    height: 2.75em;
     position: absolute;
     width: .4em;
     left: 3.8em;
-    top: 0;
+    bottom: 1.25em;
+    transition:
+            bottom 200ms,
+            height 200ms;
     transform-origin: bottom center;
+    text-align: center;
+}
+
+.developerWrapper:hover {
+    cursor: pointer;
+
+    .github {
+        width: 3em;
+        height: 3em;
+    }
+
+    %charWrapper {
+        height: 3.25em;
+        bottom: 1.5em;
+    }
 }
 
 @for $i from 0 through 10 {

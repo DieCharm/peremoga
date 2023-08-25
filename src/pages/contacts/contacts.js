@@ -12,9 +12,15 @@ const ContactsPage = () => {
             <PageOfSeveralSlides
                 slides={[
                     <div className={styles.wrapper}>
-                        <ContactsList />
-                        <CallbackForm />
-                        <GoogleMap />
+                        <div className={styles.contactsListWrapper}>
+                            <ContactsList />
+                        </div>
+                        <div className={styles.callbackFormWrapper}>
+                            <CallbackForm />
+                        </div>
+                        <div className={styles.mapWrapper}>
+                            <GoogleMap />
+                        </div>
                     </div>]}
                 enter_classes={[styles.entering]}
                 exit_classes={[styles.exiting]}/>

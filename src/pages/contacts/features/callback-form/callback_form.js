@@ -1,6 +1,8 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import styles from "./callback_form.module.scss";
 import {send_email} from "./send_email";
+import {contacts_texts} from "../../../../texts/contacts_texts";
+import {AppContext} from "../../../../context";
 
 const CallbackForm = () => {
 
@@ -11,6 +13,7 @@ const CallbackForm = () => {
         message: ""
     };
 
+    const {lang} = useContext(AppContext);
     const [form_data, set_form_data] = useState(initial_form_data);
     const [send_success, set_send_success] = useState(false);
     const [send_error, set_send_error] = useState(false);
@@ -64,6 +67,7 @@ const CallbackForm = () => {
 
     return (
         <div className={styles.formWrapper}>
+            <h2>{contacts_texts["callback"][lang]}</h2>
             <form className={styles.callbackForm} onChange={on_form_change}>
                 <label>Ім'я</label>
                 <div>{form_data.name.error && <span className={styles.red}>Введіть своє ім'я будь-ласка</span>}</div>

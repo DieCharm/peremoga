@@ -1,20 +1,13 @@
-@use "../../styles/variables";
+@use "src/styles/variables";
+@use "src/styles/mixins";
 
-.itemText {
-    align-self: center;
-    cursor: pointer;
-    font-size: 1.3em;
-    text-transform: uppercase;
-    color: variables.$text-color;
-}
-
-.itemText:hover {
-    cursor: pointer;
+.wrapper {
+    @include mixins.flex_space_between_container_column;
 }
 
 .itemUnderlineContainer {
     position: relative;
-    width: 100%;
+    //width: 100%;
     height: 0.15em;
 }
 

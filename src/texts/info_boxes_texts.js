@@ -10,30 +10,48 @@ export const info_boxes_texts = {
         name:
             ["танцювальні заходи", "танцевальные мероприятия", "dancing sessions"],
         picture: dancing_path,
-        text: ["Текст текст текст текст текст. Текст текст текст текст текст текст текст. Текст текст текст текст текст текст текст. Текст текст текст текст текст текст текст. Текст текст текст текст текст текст текст.", "Текст текст текст текст текст. Текст текст текст текст текст текст текст. Текст текст текст текст текст текст текст. Текст текст текст текст текст текст текст. Текст текст текст текст текст текст текст.", "Text text text text text. Text text text text text text text. Text text text text text text text. Text text text text text text text. Text text text text text text text."]},
+        text: [
+            "Наш великий зал із паркетом може стати площадкою для будь-яких танцювальних заходів, батлів, конкурсів та шоу. У нас можна встановити інвентар та декорації, що потрібні саме Вашому івенту.",
+            "Наш большой зал с паркетом может стать площадкой для любых танцевальных мероприятий, батлов, конкурсов и шоу. У нас можно установить инвентарь и декорации, которые нужны именно Вашему ивенту.",
+            "Our large hall with a parquet floor can become a platform for any dance events, battles, contests and shows. We can install equipment and decorations that you need for your event."]},
     "discos": {
         name:
-            ["дискотеки", "дискотеки", "discos"],
+            ["вечірки", "вечеринки", "parties"],
         picture: parties_path,
-        text: ["Текст текст текст текст текст. Текст текст текст текст текст текст текст. Текст текст текст текст текст текст текст. Текст текст текст текст текст текст текст. Текст текст текст текст текст текст текст.", "Текст текст текст текст текст. Текст текст текст текст текст текст текст. Текст текст текст текст текст текст текст. Текст текст текст текст текст текст текст. Текст текст текст текст текст текст текст.", "Text text text text text. Text text text text text text text. Text text text text text text text. Text text text text text text text. Text text text text text text text."]},
+        text: [
+            "Будь-яку вечірку ми зробимо яскравою, індивідуальною та пам'ятною. Проведення вечірок вимагає особливого креативного підходу, який ми гарантуємо.",
+            "Любую вечеринку мы сделаем яркой, индивидуальной и памятной. Проведение вечеринок требует особого креативного подхода, который мы гарантируем.",
+            "We will make any party bright, individual and memorable. We guarantee creative approach to your event."]},
     "presentations": {
         name:
             ["презентації та конференції", "презентации и конференции", "presentations and conferences"],
         picture: presentations_path,
-        text: ["Текст текст текст текст текст. Текст текст текст текст текст текст текст. Текст текст текст текст текст текст текст. Текст текст текст текст текст текст текст. Текст текст текст текст текст текст текст.", "Текст текст текст текст текст. Текст текст текст текст текст текст текст. Текст текст текст текст текст текст текст. Текст текст текст текст текст текст текст. Текст текст текст текст текст текст текст.", "Text text text text text. Text text text text text text text. Text text text text text text text. Text text text text text text text. Text text text text text text text."]},
+        text: [
+            "Видів ділових заходів багато: конференції та прес-конференції, семінари і презентації та багато іншого. Наша команда із задоволенням допоможе організувати бездоганний діловий захід, враховуючи всі нюанси.",
+            "Видов деловых мероприятий много: конференции и пресс-конференции, семинары и презентации и много другого. Наша команда с удовольствием поможет организовать безупречное деловое мероприятие, учитывая все нюансы.",
+            "There are many types of business events: conferences and press conferences, seminars and presentations and much more. Our team will be happy to help organize a perfect business event, taking into account all the nuances."]},
     "feasts": {
         name:
             ["застілля", "застолья", "feasts"],
         picture: feasts_path,
-        text: ["Текст текст текст текст текст. Текст текст текст текст текст текст текст. Текст текст текст текст текст текст текст. Текст текст текст текст текст текст текст. Текст текст текст текст текст текст текст.", "Текст текст текст текст текст. Текст текст текст текст текст текст текст. Текст текст текст текст текст текст текст. Текст текст текст текст текст текст текст. Текст текст текст текст текст текст текст.", "Text text text text text. Text text text text text text text. Text text text text text text text. Text text text text text text text. Text text text text text text text."]},
+        text: [
+            "Бажаєте організувати корпоратив, бенкет, весілля чи інше свято? Наша команда допоможе Вам у цьому, а наш просторий зал може стати танцполом для Ваших гостей.",
+            "Хотите организовать корпоратив, банкет, свадьбу или другой праздник? Наша команда поможет Вам в этом, а наш просторный зал может стать танцполом для Ваших гостей.",
+            "Want to organize a corporate party, banquet, wedding or other celebration? Our team will help you with this, and our spacious hall can become a dance floor for your guests."]},
     "fashion": {
         name:
             ["покази мод", "показы мод", "fashion shows"],
         picture: fashion_path,
-        text: ["Текст текст текст текст текст. Текст текст текст текст текст текст текст. Текст текст текст текст текст текст текст. Текст текст текст текст текст текст текст. Текст текст текст текст текст текст текст.", "Текст текст текст текст текст. Текст текст текст текст текст текст текст. Текст текст текст текст текст текст текст. Текст текст текст текст текст текст текст. Текст текст текст текст текст текст текст.", "Text text text text text. Text text text text text text text. Text text text text text text text. Text text text text text text text. Text text text text text text text."]},
+        text: [
+            "",
+            "",
+            ""]},
     "misc": {
         name:
             ["та багато іншого", "и многое другое", "and much more"],
         picture: misc_path,
-        text: ["Текст текст текст текст текст. Текст текст текст текст текст текст текст. Текст текст текст текст текст текст текст. Текст текст текст текст текст текст текст. Текст текст текст текст текст текст текст.", "Текст текст текст текст текст. Текст текст текст текст текст текст текст. Текст текст текст текст текст текст текст. Текст текст текст текст текст текст текст. Текст текст текст текст текст текст текст.", "Text text text text text. Text text text text text text text. Text text text text text text text. Text text text text text text text. Text text text text text text text."]}
+        text: [
+            "Ми відкриті до сміливих експериментів та готові взятись за реалізацію Вашого амбіційного проекту навіть якщо його направленість не вказана у переліку вище.",
+            "Мы открыты к смелым экспериментам и готовы приступить к реализации Вашего амбициозного проекта даже если его направленность не указана в перечне выше.",
+            "We are open to bold experiments and are ready to undertake the implementation of your ambitious project, even if its direction is not indicated in the list above."]}
     }

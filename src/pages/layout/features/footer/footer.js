@@ -29,6 +29,7 @@ const Footer = () => {
                     <div className={styles.developerWrapper}>
                         {developer_texts[lang].split("").map((char, index) =>
                             <div
+                                key={index}
                                 className={styles[`charWrapper${developer_texts[lang].length === 11 ? index : index + 1}`]}>
                                 {char}
                             </div>)}

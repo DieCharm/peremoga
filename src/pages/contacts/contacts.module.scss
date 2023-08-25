@@ -9,7 +9,8 @@
 
 .wrapper {
   width: 80%;
-  height: 90%;
+  height: 75%;
+  background-color: rgba(green, .2);
   display: grid;
 }
 
@@ -20,10 +21,42 @@
   }
 }
 
+@mixin elementWrapper {
+  border: red 1px solid;
+}
+
+.contactsListWrapper {
+  @include elementWrapper;
+}
+.callbackFormWrapper {
+  @include elementWrapper;
+}
+.mapWrapper {
+  @include elementWrapper;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
 .wrapper.entering {
-  @include animations.slide-in__0;
+  .contactsListWrapper {
+    @include animations.slide-in__6;
+  }
+  .callbackFormWrapper {
+    @include animations.slide-in__2;
+  }
+  .mapWrapper {
+    @include animations.slide-in__4;
+  }
 }
 
 .wrapper.exiting {
-  @include animations.slide-out__0;
+  .contactsListWrapper {
+    @include animations.slide-out__6;
+  }
+  .callbackFormWrapper {
+    @include animations.slide-out__2;
+  }
+  .mapWrapper {
+    @include animations.slide-out__4;
+  }
 }

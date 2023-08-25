@@ -1,6 +1,14 @@
+@use "src/styles/mixins";
+
 .formWrapper {
     width: 100%;
     height: 100%;
+    text-align: center;
+    @include mixins.flex_space_between_container_column;
+
+    h2 {
+        text-transform: uppercase;
+    }
 }
 
 .callbackForm {

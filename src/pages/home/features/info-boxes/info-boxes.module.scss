@@ -57,10 +57,14 @@
     border-radius: 2em;
     overflow: hidden;
     color: #e6e1ff;
-    text-transform: uppercase;
     background-size: cover;
     background-position: center;
     margin: 3% 3%;
+
+    h3 {
+        text-transform: uppercase;
+        margin: 1em;
+    }
 }
 
 @mixin mobile-animations {
@@ -215,8 +219,12 @@
     width: 100%;
     @include mixins.flex_centralized_container_column;
     justify-content: flex-start !important;
-    background: rgba(variables.$bg-color, .5);
+    background: rgba(variables.$bg-color, .65);
     cursor: default;
+
+    span {
+        text-transform: none;
+    }
 }
 
 .boxBg:hover {
@@ -224,5 +232,5 @@
 }
 
 .textWrapper {
-    margin: 4%;
+    margin: 0 4%;
 }

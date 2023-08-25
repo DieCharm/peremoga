@@ -1,24 +1,25 @@
 import React, {useState} from 'react';
 import styles from "./underlinable_link.module.scss";
 
-const UnderlinableLink = ({text, callback = () => {}}) => {
+const UnderlinableLink = ({element, callback = () => {}, underline_width = 100}) => {
 
     const [underline_active, set_underline_active] = useState(false);
 
     return (
-        <div>
-            <span
-                className={styles.itemText}
+        <div className={styles.wrapper}>
+            <div
                 onClick={callback}
                 onMouseEnter={() => set_underline_active(true)}
                 onMouseLeave={() => set_underline_active(false)}>
-                {text}
-            </span>
-            <div className={styles.itemUnderlineContainer}>
+                {element}
+            </div>
+            <div
+                className={styles.itemUnderlineContainer}
+                style={{width: `${underline_width}%`}}>
                 <div
                     className={underline_active
                         ? styles.itemUnderlineActive
-                        : styles.itemUnderlineInactive}/>
+                        : styles.itemUnderlineInactive} />
             </div>
         </div>
     );

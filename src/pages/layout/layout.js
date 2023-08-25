@@ -14,7 +14,6 @@ const LayoutPage = () => {
     const stored_lang = localStorage.getItem("lang");
     const [lang, set_lang] = useState(stored_lang !== null ? Number(stored_lang) : 0);
     const [redirect_to, set_redirect_to] = useState(null);
-    const [logo_underline_active, set_logo_underline_active] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -37,29 +36,26 @@ const LayoutPage = () => {
             <div
                 onTouchEnd={handle_touch_end}
                 className={styles.main}>
-                <Picture />
+
                 <div
-                    onClick={() => set_redirect_to("")}
-                    onMouseEnter={() => set_logo_underline_active(true)}
-                    onMouseLeave={() => set_logo_underline_active(false)}
-                    className={styles.logo} >
-                    <div className={styles.logoUnderlineContainer}>
-                        <div className={[
-                            styles.logoUnderlineInactive,
-                            (logo_underline_active ? styles.logoUnderlineActive : "")].join(" ")}/>
-                    </div>
+                    className={styles.logoWrapper}>
+                    <UnderlinableLink
+                        element={<div className={styles.logo} />}
+                        callback={() => set_redirect_to("")}
+                        underline_width={33} />
                 </div>
+
                 <div className={styles.topBar}>
                     <div className={styles.menuContainer}>
                         <div className={styles.menu}>
                             <div className={styles.menuItemContainer}>
                                 <UnderlinableLink
-                                    text={menu_items_texts["about"][lang]}
+                                    element={<span className={styles.menuItemText}>{menu_items_texts["about"][lang]}</span>}
                                     callback={() => set_redirect_to("about")} />
                             </div>
                             <div className={styles.menuItemContainer}>
                                 <UnderlinableLink
-                                    text={menu_items_texts["contacts"][lang]}
+                                    element={<span className={styles.menuItemText}>{menu_items_texts["contacts"][lang]}</span>}
                                     callback={() => set_redirect_to("contacts")} />
                             </div>
                         </div>
@@ -68,10 +64,13 @@ const LayoutPage = () => {
                         </div>
                     </div>
                 </div>
+
+                <Picture />
                 <Outlet />
                 <Footer />
                 <div className={[styles.background, styles.position1].join(" ")} />
                 <div className={[styles.background, styles.position2].join(" ")} />
+
             </div>
         </AppContext.Provider>
     );

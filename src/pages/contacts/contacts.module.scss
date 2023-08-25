@@ -9,20 +9,24 @@
 
 .wrapper {
   width: 80%;
-  height: 75%;
-  background-color: rgba(green, .2);
+  height: 80%;
+  margin-top: -1%;
   display: grid;
+
+  h2 {
+
+  }
 }
 
 @include mixins.landscape__desktop {
   .wrapper {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 45% 55%;
     grid-template-rows: repeat(2, 1fr);
   }
 }
 
 @mixin elementWrapper {
-  border: red 1px solid;
+  @include mixins.flex_centralized_container;
 }
 
 .contactsListWrapper {
@@ -33,30 +37,32 @@
 }
 .mapWrapper {
   @include elementWrapper;
-  grid-column-start: 1;
+  grid-column-start: 2;
   grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 3;
 }
 
 .wrapper.entering {
   .contactsListWrapper {
-    @include animations.slide-in__6;
+    @include animations.slide-in__7;
   }
   .callbackFormWrapper {
-    @include animations.slide-in__2;
+    @include animations.slide-in__5;
   }
   .mapWrapper {
-    @include animations.slide-in__4;
+    @include animations.slide-in__2;
   }
 }
 
 .wrapper.exiting {
   .contactsListWrapper {
-    @include animations.slide-out__6;
+    @include animations.slide-out__7;
   }
   .callbackFormWrapper {
-    @include animations.slide-out__2;
+    @include animations.slide-out__5;
   }
   .mapWrapper {
-    @include animations.slide-out__4;
+    @include animations.slide-out__2;
   }
 }

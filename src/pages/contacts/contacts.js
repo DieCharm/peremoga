@@ -15,11 +15,11 @@ const ContactsPage = () => {
                         <div className={styles.contactsListWrapper}>
                             <ContactsList />
                         </div>
-                        <div className={styles.callbackFormWrapper}>
-                            <CallbackForm />
-                        </div>
                         <div className={styles.mapWrapper}>
                             <GoogleMap />
+                        </div>
+                        <div className={styles.callbackFormWrapper}>
+                            <CallbackForm />
                         </div>
                     </div>]}
                 enter_classes={[styles.entering]}

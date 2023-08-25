@@ -1,3 +1,7 @@
-.mapWrapper {
+@use "src/styles/variables";
 
+.mapWrapper {
+  border: variables.$fg-color 2px solid;
+  border-radius: 2em;
+  height: 90%;
 }

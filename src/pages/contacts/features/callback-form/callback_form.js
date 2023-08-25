@@ -35,6 +35,7 @@ const CallbackForm = () => {
     }
 
     const on_form_submit = (event) => {
+        console.log("click");
         event.preventDefault();
         set_send_error(false);
         set_send_success(false);
@@ -69,57 +70,60 @@ const CallbackForm = () => {
         <div className={styles.formWrapper}>
             <h2>{contacts_texts["callback"][lang]}</h2>
             <form className={styles.callbackForm} onChange={on_form_change}>
-                <label>Ім'я</label>
-                <div>{form_data.name.error && <span className={styles.red}>Введіть своє ім'я будь-ласка</span>}</div>
                 <input
-                    id="name_input"
+                    className={styles.input}
                     type="text"
                     name="name"
+                    placeholder={contacts_texts["name"][lang]}
                     value={form_data.name}
                     onChange={e => {
                         if (/^[A-Za-z\s]*$/.test(e.target.value)) {
                             set_form_data({...form_data, name: e.target.value});
                         }
                     }} />
-                <label>Телефон</label>
-                <div>{form_data.phone_number.error && <span className={styles.red}>Введіть коректний номер телефону</span>}</div>
                 <input
-                    id="number_input"
-                    type="number"
+                    className={styles.input}
+                    type="tel"
                     name="phone_number"
+                    placeholder={contacts_texts["phone"][lang]}
                     value={form_data.phone_number}
                     onChange={e => {
                         if (e.target.value.length <= 12) {
                             set_form_data({...form_data, phone_number: e.target.value});
                         }
                     }} />
-                <label>Пошта</label>
-                <div>{form_data.email_address.error && <span className={styles.red}>Введіть коректну електронну пошту</span>}</div>
                 <input
-                    id="email_input"
+                    className={styles.input}
                     type="email"
-                    pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
                     name="email_address"
+                    placeholder={contacts_texts["mail"][lang]}
+                    pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
                     value={form_data.email_address}
                     onChange={e => set_form_data({...form_data, email_address: e.target.value})}/>
-                <label>Повідомлення</label>
                 <textarea
+                    className={styles.input}
                     name="message"
+                    placeholder={contacts_texts["message"][lang]}
                     value={form_data.message}
                     onChange={e => set_form_data({...form_data, message: e.target.value})} />
-                <button
-                    disabled={disabled_button}
-                    onClick={on_form_submit}>
-                    Надіслати
-                </button>
+                <div className={styles.result}>
+                    <button
+                        type="button"
+                        className={styles.button}
+                        disabled={disabled_button}
+                        onClick={on_form_submit}>
+                        {contacts_texts["send"][lang]}
+                    </button>
+                    <div>
+                        {(!send_error && !send_success) &&
+                            <span className={styles.red}>{error_message}</span>}
+                        {send_success &&
+                            <span className={styles.green}>Ваше повідомлення надіслано! Ми з Вами зв'жемось</span>}
+                        {send_error &&
+                            <span className={styles.red}>Помилка в надсиланні. Зв'яжіться із нами напряму, або спробуйте пізніше</span>}
+                    </div>
+                </div>
             </form>
-            <div className={styles.result}>
-                <span className={styles.red}>{error_message}</span>
-                {send_success &&
-                    <span className={styles.green}>Ваше повідомлення надіслано! Ми з Вами зв'жемось</span>}
-                {send_error &&
-                    <span className={styles.red}>Помилка в надсиланні. Зв'яжіться із нами напряму, або спробуйте пізніше</span>}
-            </div>
         </div>
     );
 };

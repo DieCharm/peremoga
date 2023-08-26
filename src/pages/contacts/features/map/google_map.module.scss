@@ -1,7 +1,14 @@
 @use "src/styles/variables";
+@use "src/styles/mixins";
 
 .mapWrapper {
   border: variables.$fg-color 2px solid;
   border-radius: 2em;
   height: 90%;
+}
+
+@include mixins.landscape__mobile {
+  .mapWrapper {
+    height: 80%;
+  }
 }

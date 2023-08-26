@@ -12,10 +12,8 @@
   height: 80%;
   margin-top: -1%;
   display: grid;
-
-  h2 {
-
-  }
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 @include mixins.landscape__desktop {
@@ -24,45 +22,147 @@
     grid-template-rows: repeat(2, 1fr);
   }
 }
+@include mixins.portrait__desktop {
+  .wrapper {
+    grid-template-rows: 30% 30% 40%;
+    grid-template-columns: auto;
+  }
+}
 
-@mixin elementWrapper {
+@include mixins.landscape__mobile {
+  .wrapper {
+    height: 75%;
+    grid-template-rows: repeat(2, 100%);
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@include mixins.portrait__mobile {
+  .wrapper {
+    height: 70%;
+    grid-template-rows: 1fr 1fr 100%;
+    grid-template-columns: auto;
+  }
+}
+
+%elementWrapper {
   @include mixins.flex_centralized_container;
+  text-align: center;
+
+  h2 {
+    text-transform: uppercase;
+  }
+}
+
+@include mixins.landscape__mobile {
+  %elementWrapper h2 {
+    margin-bottom: 0;
+  }
 }
 
 .contactsListWrapper {
-  @include elementWrapper;
+  @extend %elementWrapper;
 }
 .callbackFormWrapper {
-  @include elementWrapper;
+  @extend %elementWrapper;
 }
 .mapWrapper {
-  @include elementWrapper;
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 1;
-  grid-row-end: 3;
+  align-items: end !important;
+  @extend %elementWrapper;
 }
 
-.wrapper.entering {
-  .contactsListWrapper {
-    @include animations.slide-in__7;
-  }
-  .callbackFormWrapper {
-    @include animations.slide-in__5;
-  }
+//map position
+@include mixins.landscape__desktop {
   .mapWrapper {
-    @include animations.slide-in__2;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 3;
+  }
+}
+@include mixins.landscape__mobile {
+  .mapWrapper {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
   }
 }
 
-.wrapper.exiting {
-  .contactsListWrapper {
-    @include animations.slide-out__7;
+//animations
+@include mixins.landscape__desktop {
+  .wrapper.entering {
+    .contactsListWrapper {
+      @include animations.slide-in__7;
+    }
+    .callbackFormWrapper {
+      @include animations.slide-in__5;
+    }
+    .mapWrapper {
+      @include animations.slide-in__2;
+    }
   }
-  .callbackFormWrapper {
-    @include animations.slide-out__5;
+
+  .wrapper.exiting {
+    .contactsListWrapper {
+      @include animations.slide-out__7;
+    }
+    .callbackFormWrapper {
+      @include animations.slide-out__5;
+    }
+    .mapWrapper {
+      @include animations.slide-out__2;
+    }
   }
-  .mapWrapper {
-    @include animations.slide-out__2;
+}
+
+@include mixins.landscape__mobile {
+  .wrapper.entering {
+    .contactsListWrapper {
+      @include animations.slide-in__7;
+    }
+    .callbackFormWrapper {
+      @include animations.slide-in__1;
+    }
+    .mapWrapper {
+      @include animations.slide-in__4;
+    }
+  }
+
+  .wrapper.exiting {
+    .contactsListWrapper {
+      @include animations.slide-out__7;
+    }
+    .callbackFormWrapper {
+      @include animations.slide-out__1;
+    }
+    .mapWrapper {
+      @include animations.slide-out__4;
+    }
+  }
+}
+
+@include mixins.portrait {
+  .wrapper.entering {
+    .contactsListWrapper {
+      @include animations.slide-in__6;
+    }
+    .callbackFormWrapper {
+      @include animations.slide-in__2;
+    }
+    .mapWrapper {
+      @include animations.slide-in__4;
+    }
+  }
+
+  .wrapper.exiting {
+    .contactsListWrapper {
+      @include animations.slide-out__6;
+    }
+    .callbackFormWrapper {
+      @include animations.slide-out__2;
+    }
+    .mapWrapper {
+      @include animations.slide-out__4;
+    }
   }
 }

@@ -13,7 +13,13 @@
     color: variables.$text-color;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto;
+    grid-template-rows: none;
+}
+
+.wrapper {
+    border: red 1px solid;
+    height: 100%;
+    width: 100%;
 }
 
 span {
@@ -27,6 +33,7 @@ span {
 }
 
 .socialWrapper {
+    border: red 1px solid;
     margin: auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -101,10 +108,15 @@ a {
 }
 
 .flexEndWrapper {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
     @include mixins.flex_flex_end_container_row;
 }
 
 .developerWrapper {
+    border: red 1px solid;
     margin-top: auto;
     height: 4em;
     width: 8em;
@@ -143,12 +155,5 @@ a {
     .charWrapper#{$i} {
         @extend %charWrapper;
         transform: rotate(#{-90 + (18 * $i)}deg);
-    }
-}
-
-@include mixins.landscape__mobile {
-    .developerWrapper {
-        width: 12em;
-        @include mixins.flex_space_between_container_row;
     }
 }

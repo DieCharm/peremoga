@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import styles from "./callback_form.module.scss";
 import {send_email} from "./send_email";
 import {contacts_texts} from "../../../../texts/contacts_texts";
@@ -15,90 +15,105 @@ const CallbackForm = () => {
 
     const {lang} = useContext(AppContext);
     const [form_data, set_form_data] = useState(initial_form_data);
-    const [send_success, set_send_success] = useState(false);
-    const [send_error, set_send_error] = useState(false);
-    const [error_message, set_error_message] = useState("");
-    const [disabled_button, set_disabled_button] = useState(true);
+    const [sending, set_sending] = useState(false);
+    const [sending_success, set_sending_success] = useState(false);
+    const [sending_error, set_sending_error] = useState(false);
+    const [show_invalidity_message, set_show_invalidity_message] = useState(false);
 
-    const on_form_change = () => {
-        if (form_data.name.length > 0
-            && ((form_data.phone_number.length >= 10
-                    && form_data.phone_number.length <= 12)
-                || (form_data.email_address.length > 0
-                    && /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(form_data.email_address))))
-        {
-            set_disabled_button(false);
-        }
-        else {
-            set_disabled_button(true);
-        }
-    }
+    //separate states bc when input is "" form in total is invalid but this particular input should not be marked red
+    const [form_data_invalidity, set_form_data_invalidity] = useState(true);
+    const [form_data_invalidities, set_form_data_invalidities] = useState({
+        name: false,
+        phone_number: false,
+        email_address: false,
+        message: false
+    });
 
-    const on_form_submit = (event) => {
-        console.log("click");
-        event.preventDefault();
-        set_send_error(false);
-        set_send_success(false);
-        set_error_message("");
+    const allow_input_name = (name) => name.split("").every((char) =>(char === " " || char.toLowerCase() !== char.toUpperCase()));
+    const allow_input_phone = (phone) => phone.split("").every(char => char >= '0' && char <= '9');
+
+    const is_name_valid = () => form_data.name.length > 0;
+    const is_phone_valid = () => form_data.phone_number.length >= 10 && form_data.phone_number.length <= 12;
+    const is_email_valid = () => /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(form_data.email_address);
+
+    const handle_phone_blur = () => set_form_data_invalidities({
+        ...form_data_invalidities,
+        phone_number: (form_data.phone_number.length > 0 && !is_phone_valid())});
+    const handle_email_blur = () => set_form_data_invalidities({
+        ...form_data_invalidities,
+        email_address: (form_data.email_address.length > 0 && !is_email_valid())});
+
+    useEffect(() => {
+        set_show_invalidity_message(false);
+        set_form_data_invalidity(!(is_name_valid()
+            && ((is_phone_valid() && (form_data.email_address.length === 0 || is_email_valid()))
+                || (is_email_valid() && (form_data.phone_number.length === 0 || is_phone_valid())))));
+    }, [form_data]);
+
+    const on_form_submit = () => {
+        set_sending_error(false);
+        set_sending_success(false);
+
         //should be valid name and either phone number or email
-        if (form_data.name.length === 0) {
-            set_error_message("Введіть Ваше ім'я");
-        }
-        else if (form_data.phone_number.length > 0 && form_data.phone_number.length < 10) {
-            set_error_message("Введено некоректний номер телефону");
-        }
-        else if (form_data.email_address.length > 0 && !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(form_data.email_address)) {
-            set_error_message("Введено некоректну електронну адресу");
-        }
-        else if (form_data.phone_number.length === 0 && form_data.email_address.length === 0) {
-            set_error_message("Перед відправкою введіть свою пошту або номер телефону");
+        if (!form_data_invalidity) {
+            set_sending(true);
+            set_form_data_invalidity(true);
+            set_sending_error(false);
+            set_sending_success(false);
+            send_email(form_data).then(
+                () => {
+                    set_sending(false);
+                    set_sending_success(true);
+                },
+                () => {
+                    set_sending(false);
+                    set_sending_error(true);
+                }
+            );
+            set_form_data(initial_form_data);
         }
         else {
-            set_error_message("");
-            set_form_data(initial_form_data);
-            set_disabled_button(true);
-            set_send_error(false);
-            set_send_success(false);
-            send_email(form_data).then(
-                () => set_send_success(true),
-                () => set_send_error(true)
-            );
+            set_show_invalidity_message(true);
         }
     }
 
     return (
         <div className={styles.formWrapper}>
             <h2>{contacts_texts["callback"][lang]}</h2>
-            <form className={styles.callbackForm} onChange={on_form_change}>
+            <form className={styles.callbackForm}>
                 <input
                     className={styles.input}
                     type="text"
                     name="name"
                     placeholder={contacts_texts["name"][lang]}
                     value={form_data.name}
-                    onChange={e => {
-                        if (/^[A-Za-z\s]*$/.test(e.target.value)) {
+                    maxLength={30}
+                    onChange={(e) => {
+                        if (allow_input_name(e.target.value)) {
                             set_form_data({...form_data, name: e.target.value});
                         }
                     }} />
                 <input
-                    className={styles.input}
+                    className={form_data_invalidities.phone_number ? styles.invalidInput : styles.input}
                     type="tel"
                     name="phone_number"
                     placeholder={contacts_texts["phone"][lang]}
                     value={form_data.phone_number}
+                    maxLength={12}
+                    onBlur={handle_phone_blur}
                     onChange={e => {
-                        if (e.target.value.length <= 12) {
+                        if (allow_input_phone(e.target.value)) {
                             set_form_data({...form_data, phone_number: e.target.value});
                         }
                     }} />
                 <input
-                    className={styles.input}
+                    className={form_data_invalidities.email_address ? styles.invalidInput : styles.input}
                     type="email"
                     name="email_address"
                     placeholder={contacts_texts["mail"][lang]}
-                    pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
                     value={form_data.email_address}
+                    maxLength={30}
+                    onBlur={handle_email_blur}
                     onChange={e => set_form_data({...form_data, email_address: e.target.value})}/>
                 <textarea
                     className={styles.input}
@@ -106,24 +121,25 @@ const CallbackForm = () => {
                     placeholder={contacts_texts["message"][lang]}
                     value={form_data.message}
                     onChange={e => set_form_data({...form_data, message: e.target.value})} />
-                <div className={styles.result}>
-                    <button
-                        type="button"
-                        className={styles.button}
-                        disabled={disabled_button}
-                        onClick={on_form_submit}>
-                        {contacts_texts["send"][lang]}
-                    </button>
-                    <div>
-                        {(!send_error && !send_success) &&
-                            <span className={styles.red}>{error_message}</span>}
-                        {send_success &&
-                            <span className={styles.green}>Ваше повідомлення надіслано! Ми з Вами зв'жемось</span>}
-                        {send_error &&
-                            <span className={styles.red}>Помилка в надсиланні. Зв'яжіться із нами напряму, або спробуйте пізніше</span>}
-                    </div>
-                </div>
             </form>
+            <div className={styles.result}>
+                <button
+                    type="button"
+                    className={form_data_invalidity ? styles.button : styles.buttonEnabled}
+                    onClick={on_form_submit}>
+                    {contacts_texts["send"][lang]}
+                </button>
+                <div>
+                    {sending &&
+                        <span>{contacts_texts["sending"][lang]}</span>}
+                    {show_invalidity_message &&
+                        <span className={styles.red}>{contacts_texts["form_data_invalidity"][lang]}</span>}
+                    {sending_success &&
+                        <span className={styles.green}>{contacts_texts["sending_success"][lang]}</span>}
+                    {sending_error &&
+                        <span className={styles.red}>{contacts_texts["sending_error"][lang]}</span>}
+                </div>
+            </div>
         </div>
     );
 };

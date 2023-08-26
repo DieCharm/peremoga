@@ -38,17 +38,18 @@
   position: absolute;
 }
 
-@include mixins.landscape {
+@include mixins.landscape__desktop {
   %contentWrapper {
     height: 100%;
-    width: 80%;
+    width: 75%;
     top: 0;
   }
 }
 
 @include mixins.landscape__mobile {
   %contentWrapper {
-    width: 60%;
+    height: 85%;
+    width: 50%;
   }
 }
 
@@ -104,16 +105,15 @@
   position: absolute;
   top: 0;
 
-  h1 {
+  h2 {
     text-transform: uppercase;
     text-decoration: underline variables.$fg-color 1px solid;
     text-underline-offset: .1em;
     text-align: center;
-    display: block;
-    margin: 1em 1em;
   }
   p {
     margin: .5em .5em;
+    text-align: justify;
   }
 }
 
@@ -132,11 +132,17 @@
 @include mixins.landscape__mobile {
   %textWrapper {
     height: 100%;
-    width: 35%;
+    width: 45%;
+    justify-content: flex-start !important;
 
-    h1 {
-      margin: 0 0;
+    h2 {
+      margin: 0;
     }
+  }
+}
+@include mixins.portrait__mobile {
+  %textWrapper h2 {
+    margin-right: .5em;
   }
 }
 @include mixins.landscape__desktop {

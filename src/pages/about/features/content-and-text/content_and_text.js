@@ -12,14 +12,14 @@ const ContentAndText = ({content, header, text, inverse = false}) => {
                             {content}
                         </div>
                         <div className={styles.textWrapperRight}>
-                            <h1>{header}</h1>
+                            <h2>{header}</h2>
                             <p>{text}</p>
                         </div>
                     </>
                     :
                     <>
                         <div className={styles.textWrapperLeft}>
-                            <h1>{header}</h1>
+                            <h2>{header}</h2>
                             <p>{text}</p>
                         </div>
                         <div className={styles.contentWrapperRight}>

@@ -43,9 +43,9 @@ export const info_boxes_texts = {
             ["покази мод", "показы мод", "fashion shows"],
         picture: fashion_path,
         text: [
-            "",
-            "",
-            ""]},
+            "Будемо раді допомогти Вам презентувати модні колекції. Наш великий зал стане комффортним подіумом для моделей та вмістить глядачів, операторів та все необхідне обладнання",
+            "Будем рады помочь Вам презентовать модные коллекции. Наш обширный зал станет комфортным подиумом для моделей и вместит зрителей, операторов и все необходимое оборудование",
+            "We will be happy to help you present fashion collections. Our large hall will become a comfortable podium for models and will accommodate spectators, operators and all the necessary equipment"]},
     "misc": {
         name:
             ["та багато іншого", "и многое другое", "and much more"],

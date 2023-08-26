@@ -4,7 +4,7 @@ import AnimatedContentSwitcher from "../../../../common/animated-content-switche
 
 const ImageCarousel = () => {
 
-    const image_styles = [styles.image1, styles.image2, styles.image3];
+    const image_styles = [styles.image1, styles.image2, styles.image3, styles.image4, styles.image5, styles.image6, styles.image7, styles.image8, styles.image9, styles.image10];
     const images = image_styles.map(image_style => <div className={image_style} />);
 
     const [image_number, set_image_number] = useState(0);

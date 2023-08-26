@@ -6,10 +6,10 @@ import PageOfSeveralSlides from "../../common/page-of-several-slides/page_of_sev
 import {AppContext} from "../../context";
 import ContentAndText from "./features/content-and-text/content_and_text";
 import content_and_text_styles from "./features/content-and-text/content_and_text.module.scss";
-import Video from "./features/video/video";
+import Video from "./features/content-and-text/video/video";
 import video_path from "../../static/img/video.mp4";
 import {about_texts} from "../../texts/about_texts";
-import Image from "./features/image/image";
+import Image from "./features/content-and-text/image/image";
 import image1_path from "../../static/img/about_image1.jpeg";
 import image2_path from "../../static/img/about_image2.jpeg";
 
@@ -19,18 +19,18 @@ const AboutPage = () => {
 
     const image_and_text1 = <ContentAndText
         content={<Image image_path={image1_path} />}
-        header={about_texts["h1_near_video"][lang]}
-        text={about_texts["text_near_video"][lang]} />
+        header={about_texts["h2_near_image1"][lang]}
+        text={about_texts["text_near_image1"][lang]} />
 
     const image_and_text2 = <ContentAndText
         content={<Image image_path={image2_path} />}
-        header={about_texts["h1_near_video"][lang]}
-        text={about_texts["text_near_video"][lang]}
+        header={about_texts["h2_near_image2"][lang]}
+        text={about_texts["text_near_image2"][lang]}
         inverse={true} />
 
     const video_and_text = <ContentAndText
         content={<Video video_path={video_path} />}
-        header={about_texts["h1_near_video"][lang]}
+        header={about_texts["h2_near_video"][lang]}
         text={about_texts["text_near_video"][lang]} />;
 
     const slides = [image_and_text1, image_and_text2, video_and_text, <ImageCarousel />];

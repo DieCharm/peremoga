@@ -64,15 +64,15 @@
 
 .image1 {
   @extend %image;
-  background-image: url("../../../../static/img/image1.jpeg");
+  background-image: url("../../../../static/img/carousel_image1.jpeg");
 }
 .image2 {
   @extend %image;
-  background-image: url("../../../../static/img/image2.jpeg");
+  background-image: url("../../../../static/img/carousel_image2.jpeg");
 }
 .image3 {
   @extend %image;
-  background-image: url("../../../../static/img/image3.jpeg");
+  background-image: url("../../../../static/img/carousel_image3.jpeg");
 }
 
 @keyframes imageMoveLeft {

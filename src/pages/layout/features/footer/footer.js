@@ -9,24 +9,28 @@ const Footer = () => {
 
     return (
         <div className={styles.footer}>
-            <span className={styles.copyright}>Перемога <wbr/>© 2023</span>
-            <div className={styles.socialWrapper}>
-                <a
-                    className={styles.phone}
-                    href="tel:+380680757509" />
-                <a
-                    className={styles.gmail}
-                    href="mailto:pobeda.darnica@gmail.com" />
-                <a
-                    className={styles.instagram}
-                    href="https://www.instagram.com/" />
-                <a
-                    className={styles.facebook}
-                    href="https://www.facebook.com/" />
+            <div className={styles.copyrightWrapper}>
+                <span className={styles.copyright}>Перемога © 2023</span>
             </div>
-            <div className={styles.flexEndWrapper}>
+            <div className={styles.socialsWrapper}>
+                <div className={styles.socials}>
+                    <a
+                        className={styles.phone}
+                        href="tel:+380680757509" />
+                    <a
+                        className={styles.gmail}
+                        href="mailto:pobeda.darnica@gmail.com" />
+                    <a
+                        className={styles.instagram}
+                        href="https://www.instagram.com/" />
+                    <a
+                        className={styles.facebook}
+                        href="https://www.facebook.com/" />
+                </div>
+            </div>
+            <div className={styles.developerWrapper}>
                 <a href="https://github.com/DieCharm/">
-                    <div className={styles.developerWrapper}>
+                    <div className={styles.developer}>
                         {developer_texts[lang].split("").map((char, index) =>
                             <div
                                 key={index}

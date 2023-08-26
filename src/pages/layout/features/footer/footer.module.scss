@@ -13,13 +13,26 @@
     color: variables.$text-color;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: none;
+    grid-template-rows: 100%;
 }
 
-.wrapper {
-    border: red 1px solid;
+%wrapper {
     height: 100%;
     width: 100%;
+}
+
+.copyrightWrapper {
+    @extend %wrapper;
+    @include mixins.flex_centralized_container;
+    justify-content: flex-start;
+}
+.socialsWrapper {
+    @extend %wrapper;
+    @include mixins.flex_centralized_container_row;
+}
+.developerWrapper {
+    @extend %wrapper;
+    @include mixins.flex_flex_end_container_row;
 }
 
 span {
@@ -32,8 +45,7 @@ span {
     margin-left: 5vw;
 }
 
-.socialWrapper {
-    border: red 1px solid;
+.socials {
     margin: auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -46,7 +58,7 @@ span {
     .footer {
         height: 15%;
     }
-    .socialWrapper {
+    .socials {
         width: 7em;
         height: 7em;
         grid-template-columns: repeat(2, 1fr);
@@ -107,21 +119,18 @@ a {
     color: var(--text-color);
 }
 
-.flexEndWrapper {
-    grid-column-start: 3;
-    grid-column-end: 4;
-    grid-row-start: 1;
-    grid-row-end: 2;
-    @include mixins.flex_flex_end_container_row;
-}
-
-.developerWrapper {
-    border: red 1px solid;
+.developer {
     margin-top: auto;
     height: 4em;
     width: 8em;
     position: relative;
     @include mixins.flex_space_between_container_column;
+}
+
+@include mixins.landscape__mobile {
+    .developer {
+        margin-bottom: .5em;
+    }
 }
 
 %charWrapper {
@@ -137,7 +146,7 @@ a {
     text-align: center;
 }
 
-.developerWrapper:hover {
+.developer:hover {
     cursor: pointer;
 
     .github {

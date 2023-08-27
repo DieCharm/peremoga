@@ -10,6 +10,9 @@ const InfoBoxes = React.memo(() => {
     const boxes_container_ref = useRef();
 
     const if_scrolled_stop_propagation = (event) => {
+        console.log("scrollHeight" + boxes_container_ref.current.scrollHeight);
+        console.log("clientHeight" + boxes_container_ref.current.clientHeight);
+        console.log("scrollTop" + boxes_container_ref.current.scrollTop);
         if (boxes_container_ref.current.scrollHeight > boxes_container_ref.current.clientHeight
             && boxes_container_ref.current.scrollTop !== 0) {
             event.stopPropagation();

@@ -7,9 +7,10 @@
   border-radius: 2em;
   overflow: hidden;
   position: absolute;
+  width: 100%;
 }
 
-@include mixins.landscape {
+/*@include mixins.landscape {
   .videoContainer {
     height: 100%;
   }
@@ -18,4 +19,4 @@
   .videoContainer {
     width: 100%;
   }
-}
+}*/

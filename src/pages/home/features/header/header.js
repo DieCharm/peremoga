@@ -7,9 +7,9 @@ import AnimatedContentSwitcher from "../../../../common/animated-content-switche
 const Header = React.memo(() => {
 
     const {lang} = useContext(AppContext);
-    const elements = Object.keys(home_texts).map(key => <p>{home_texts[key][lang]}</p>);
+    const elements = Object.keys(home_texts).map(key =>
+        <p>{home_texts[key][lang]}</p>);
 
-    console.log(elements);
     return (
         <div className={styles.headerContainer}>
             <h1>peremoga hall</h1>

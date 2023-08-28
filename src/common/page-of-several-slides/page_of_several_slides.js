@@ -33,23 +33,13 @@ const PageOfSeveralSlides = ({slides, enter_classes, exit_classes}) => {
 
     const handle_touch_end = (event) => {
         if (!animating) {
-            if (event.changedTouches[0]?.screenY < prev_screen_Y) {
-                change_slide(true);
-            }
-            else if (event.changedTouches[0]?.screenY > prev_screen_Y) {
-                change_slide(false);
-            }
+            change_slide(event.changedTouches[0]?.screenY < prev_screen_Y);
         }
     }
 
     const handle_wheel = (e) => {
         if (!animating) {
-            if (e.deltaY > 0) {
-                change_slide(true);
-            }
-            else if (e.deltaY < 0) {
-                change_slide(false);
-            }
+            change_slide(e.deltaY > 0);
         }
     }
 

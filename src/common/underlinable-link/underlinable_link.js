@@ -1,7 +1,10 @@
 import React, {useState} from 'react';
 import styles from "./underlinable_link.module.scss";
 
-const UnderlinableLink = ({element, callback = () => {}, underline_width = 100}) => {
+const UnderlinableLink = ({
+                              element,
+                              callback = () => {},
+                              underline_width = 100}) => {
 
     const [underline_active, set_underline_active] = useState(false);
 

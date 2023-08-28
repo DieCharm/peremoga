@@ -25,8 +25,7 @@ const CallbackForm = () => {
     const [form_data_invalidities, set_form_data_invalidities] = useState({
         name: false,
         phone_number: false,
-        email_address: false,
-        message: false
+        email_address: false
     });
 
     const allow_input_name = (name) => name.split("").every((char) =>(char === " " || char.toLowerCase() !== char.toUpperCase()));
@@ -36,6 +35,9 @@ const CallbackForm = () => {
     const is_phone_valid = () => form_data.phone_number.length >= 10 && form_data.phone_number.length <= 12;
     const is_email_valid = () => /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(form_data.email_address);
 
+    const handle_name_blur = () => set_form_data_invalidities({
+        ...form_data_invalidities,
+        name: form_data.name.length === 0});
     const handle_phone_blur = () => set_form_data_invalidities({
         ...form_data_invalidities,
         phone_number: (form_data.phone_number.length > 0 && !is_phone_valid())});
@@ -73,6 +75,9 @@ const CallbackForm = () => {
             set_form_data(initial_form_data);
         }
         else {
+            if (form_data.name.length === 0) {
+                set_form_data_invalidities({...form_data_invalidities, name: true});
+            }
             set_show_invalidity_message(true);
         }
     }
@@ -82,12 +87,13 @@ const CallbackForm = () => {
             <h2>{contacts_texts["callback"][lang]}</h2>
             <form className={styles.callbackForm}>
                 <input
-                    className={styles.input}
+                    className={form_data_invalidities.name ? styles.invalidInput : styles.input}
                     type="text"
                     name="name"
                     placeholder={contacts_texts["name"][lang]}
                     value={form_data.name}
                     maxLength={30}
+                    onBlur={handle_name_blur}
                     onChange={(e) => {
                         if (allow_input_name(e.target.value)) {
                             set_form_data({...form_data, name: e.target.value});

@@ -1,0 +1,43 @@
+{
+  "files": {
+    "main.css": "/static/css/main.3b8ad55e.css",
+    "main.js": "/static/js/main.bd96a454.js",
+    "static/media/video.mp4": "/static/media/video.ae90a53ee71e28b11ce9.mp4",
+    "static/media/feast.jpeg": "/static/media/feast.98ccee1ca1327541d366.jpeg",
+    "static/media/carousel_image10.jpeg": "/static/media/carousel_image10.0856ba482f0697ae5709.jpeg",
+    "static/media/carousel_image4.jpeg": "/static/media/carousel_image4.a599dd3c3536371c0f2c.jpeg",
+    "static/media/carousel_image2.jpeg": "/static/media/carousel_image2.debea83da78cfb92b19e.jpeg",
+    "static/media/carousel_image6.jpeg": "/static/media/carousel_image6.debea83da78cfb92b19e.jpeg",
+    "static/media/home_bg3.jpeg": "/static/media/home_bg3.5dd28c843f3434ca75d9.jpeg",
+    "static/media/home_bg1.jpeg": "/static/media/home_bg1.c1d87d60fe1baf2af872.jpeg",
+    "static/media/carousel_image3.jpeg": "/static/media/carousel_image3.8a4cc395570292fecea8.jpeg",
+    "static/media/carousel_image7.jpeg": "/static/media/carousel_image7.5e821d2b4e730efaa30e.jpeg",
+    "static/media/carousel_image5.jpeg": "/static/media/carousel_image5.93c3d3bf66f3c1f34426.jpeg",
+    "static/media/home_bg0.jpeg": "/static/media/home_bg0.cfab5ec3ae1e570b1ac9.jpeg",
+    "static/media/carousel_image9.jpeg": "/static/media/carousel_image9.1bed6047fc57d3b51e6c.jpeg",
+    "static/media/carousel_image8.jpeg": "/static/media/carousel_image8.0c073382343f2267c548.jpeg",
+    "static/media/dancing.jpeg": "/static/media/dancing.0c073382343f2267c548.jpeg",
+    "static/media/about_image1.jpeg": "/static/media/about_image1.d186f307053ed4dc28dc.jpeg",
+    "static/media/misc.jpeg": "/static/media/misc.3d492e71a0cb6740d6c1.jpeg",
+    "static/media/party.jpeg": "/static/media/party.2b45165cf39d5d429188.jpeg",
+    "static/media/presentation.jpeg": "/static/media/presentation.d7ab5db29f26e431d2dd.jpeg",
+    "static/media/fashion.jpeg": "/static/media/fashion.36148244b8fcb30140be.jpeg",
+    "static/media/about_image2.jpeg": "/static/media/about_image2.3632696f544f2eca8bab.jpeg",
+    "static/media/Lunasima-Bold.ttf": "/static/media/Lunasima-Bold.52e49a4e973f3acb1424.ttf",
+    "static/media/Lunasima-Regular.ttf": "/static/media/Lunasima-Regular.d4cacf33300b7780839c.ttf",
+    "static/media/BebasNeue-Regular.ttf": "/static/media/BebasNeue-Regular.12e3683f9192436a7be8.ttf",
+    "static/media/instagram.png": "/static/media/instagram.dcdee5e99825252bcc7d.png",
+    "static/media/phone.png": "/static/media/phone.6bcb91454d73ac7ea999.png",
+    "static/media/email.png": "/static/media/email.ee5641c807c097ba08cb.png",
+    "static/media/facebook.png": "/static/media/facebook.1f3d6b20dd67770809dd.png",
+    "static/media/PeremogaLogo.svg": "/static/media/PeremogaLogo.171c5ef4b1d1370893fa.svg",
+    "static/media/github.svg": "/static/media/github.20fb767ee886cab5beb4.svg",
+    "index.html": "/index.html",
+    "main.3b8ad55e.css.map": "/static/css/main.3b8ad55e.css.map",
+    "main.bd96a454.js.map": "/static/js/main.bd96a454.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3b8ad55e.css",
+    "static/js/main.bd96a454.js"
+  ]
+}

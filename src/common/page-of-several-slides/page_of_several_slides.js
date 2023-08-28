@@ -32,7 +32,7 @@ const PageOfSeveralSlides = ({slides, enter_classes, exit_classes}) => {
     }
 
     const handle_touch_end = (event) => {
-        if (!animating) {
+        if (!animating && event.changedTouches[0]?.screenY !== prev_screen_Y) {
             change_slide(event.changedTouches[0]?.screenY < prev_screen_Y);
         }
     }

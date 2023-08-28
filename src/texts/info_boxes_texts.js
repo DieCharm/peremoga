@@ -43,9 +43,9 @@ export const info_boxes_texts = {
             ["покази мод", "показы мод", "fashion shows"],
         picture: fashion_path,
         text: [
-            "Будемо раді допомогти Вам презентувати модні колекції. Наш великий зал стане комффортним подіумом для моделей та вмістить глядачів, операторів та все необхідне обладнання",
-            "Будем рады помочь Вам презентовать модные коллекции. Наш обширный зал станет комфортным подиумом для моделей и вместит зрителей, операторов и все необходимое оборудование",
-            "We will be happy to help you present fashion collections. Our large hall will become a comfortable podium for models and will accommodate spectators, operators and all the necessary equipment"]},
+            "Для організаторів показів мод бюджет завжди різний, бо залежить від концепції. Це важливо, бо продається не просто сукня, а історія навколо неї. Не можна уявити модну індустрію без ефектних шоу і магії, які ми допоможемо втілити у життя.",
+            "Для организаторов показов мод бюджет всегда разный, потому что зависит от концепции. Это важно, потому что продается не просто платье, а история вокруг него. Нельзя представить модную индустрию без эффектных шоу и магии, которые мы поможем воплотить в жизнь.",
+            "For the organizers of fashion shows, the budget is always different, because it depends on the concept. This is important, because it is not just a dress that is sold, but the story around it. It is impossible to imagine the fashion industry without spectacular shows and magic, which we help bring to life."]},
     "misc": {
         name:
             ["та багато іншого", "и многое другое", "and much more"],

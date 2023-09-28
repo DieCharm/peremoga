@@ -29,14 +29,14 @@ const ContactsList = () => {
 
                 <div className={styles.contactWrapper}>
                     <p>instagram:</p>
-                    <a href="https://www.instagram.com/">
+                    <a href="https://www.instagram.com/peremoga.hall/">
                         <UnderlinableLink element="@pobeda.darnica" />
                     </a>
                 </div>
 
                 <div className={styles.contactWrapper}>
                     <p>facebook:</p>
-                    <a href="https://www.facebook.com/">
+                    <a href="https://www.facebook.com/pobeda.darnica">
                         <UnderlinableLink element="Локація Перемога" />
                     </a>
                 </div>

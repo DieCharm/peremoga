@@ -66,17 +66,17 @@
 }
 
 @include mixins.landscape__mobile {
-    .menuContainer { width: 70%; }
+    .menuContainer { width: 100%; }
 }
 @include mixins.landscape__desktop {
-    .menuContainer { width: 50%; }
+    .menuContainer { width: 85%; }
 }
 
 @include mixins.portrait__mobile {
-    .menuContainer { width: 70%; }
+    .menuContainer { width: 90%; }
 }
 @include mixins.portrait__desktop {
-    .menuContainer { width: 70%; }
+    .menuContainer { width: 85%; }
 }
 
 .logoWrapper {
@@ -110,14 +110,14 @@
 }
 
 .menu {
-    width: 75%;
+    width: 95%;
     height: inherit;
     display: flex;
     flex-direction: row;
 }
 
 .menuItemContainer {
-    width: 50%;
+    width: 33%;
     height: inherit;
     display: flex;
     align-items: center;

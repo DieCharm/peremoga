@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect} from 'react';
 import UnderlinableLink from "../../common/underlinable-link/underlinable_link";
 import {menu_items_texts} from "../../texts/layout_texts";
 import LangSwitcher from "./features/lang-switcher/lang_switcher";
@@ -37,17 +37,14 @@ const LayoutPage = () => {
                 onTouchEnd={handle_touch_end}
                 className={styles.main}>
 
-                <div
-                    className={styles.logoWrapper}>
-                    <UnderlinableLink
-                        element={<div className={styles.logo} />}
-                        callback={() => set_redirect_to("")}
-                        underline_width={33} />
-                </div>
-
                 <div className={styles.topBar}>
                     <div className={styles.menuContainer}>
                         <div className={styles.menu}>
+                            <div className={styles.menuItemContainer}>
+                                <UnderlinableLink
+                                    element={<span className={styles.menuItemText}>{menu_items_texts["main"][lang]}</span>}
+                                    callback={() => set_redirect_to("")} />
+                            </div>
                             <div className={styles.menuItemContainer}>
                                 <UnderlinableLink
                                     element={<span className={styles.menuItemText}>{menu_items_texts["about"][lang]}</span>}

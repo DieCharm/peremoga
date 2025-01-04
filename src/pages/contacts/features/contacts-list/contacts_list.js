@@ -22,8 +22,8 @@ const ContactsList = () => {
 
                 <div className={styles.contactWrapper}>
                     <p>{contacts_texts["mail"][lang]}:</p>
-                    <a href="mailto:pobeda.darnica@gmail.com">
-                        <UnderlinableLink element="pobeda.darnica@gmail.com" />
+                    <a href="mailto:park_peremogaa@ukr.net">
+                        <UnderlinableLink element="park_peremogaa@ukr.net" />
                     </a>
                 </div>
 

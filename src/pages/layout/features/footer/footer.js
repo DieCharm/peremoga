@@ -19,7 +19,7 @@ const Footer = () => {
                         href="tel:+380982723535" />
                     <a
                         className={styles.gmail}
-                        href="mailto:pobeda.darnica@gmail.com" />
+                        href="mailto:park_peremogaa@ukr.net" />
                     <a
                         className={styles.instagram}
                         href="https://www.instagram.com/" />

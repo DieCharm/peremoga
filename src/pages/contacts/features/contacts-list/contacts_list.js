@@ -15,8 +15,8 @@ const ContactsList = () => {
             <div>
                 <div className={styles.contactWrapper}>
                     <p>{contacts_texts["phone"][lang]}:</p>
-                    <a href="tel:+380680757509">
-                        <UnderlinableLink element="+380(68)-075-75-09" />
+                    <a href="tel:+380982723535">
+                        <UnderlinableLink element="+380(98)-272-35-35" />
                     </a>
                 </div>
 

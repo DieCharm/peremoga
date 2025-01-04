@@ -16,7 +16,7 @@ const Footer = () => {
                 <div className={styles.socials}>
                     <a
                         className={styles.phone}
-                        href="tel:+380680757509" />
+                        href="tel:+380982723535" />
                     <a
                         className={styles.gmail}
                         href="mailto:pobeda.darnica@gmail.com" />
